@@ -1,5 +1,8 @@
+import entity.Dock;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,18 +11,18 @@ public class Main {
     private static final Logger LOGGER = Logger.getLogger("JPA");
 
     public static void main(String[] args) {
-        //Main main = new Main();
-        //main.run();
+        Main main = new Main();
+        main.run();
 
 
 
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
-        EntityManager em = factory.createEntityManager();
+        //EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
+        //EntityManager em = factory.createEntityManager();
 
 
-        em.getTransaction().begin();
-        em.getTransaction().commit();
+        //em.getTransaction().begin();
+        //em.getTransaction().commit();
     }
 
     public void run(){
@@ -28,7 +31,7 @@ public class Main {
         try {
             factory = Persistence.createEntityManagerFactory("test");
             entityManager = factory.createEntityManager();
-            //persistPerson(entityManager);
+            persistDock(entityManager);
 
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
@@ -43,5 +46,19 @@ public class Main {
         }
     }
 
+    private void persistDock(EntityManager entityManager){
+        EntityTransaction transaction = entityManager.getTransaction();
+        try{
+            transaction.begin();
+            Dock dock1 = new Dock();
+            dock1.setNbLocation(10);
+            entityManager.persist(dock1);
+            transaction.commit();
+        }catch (Exception e){
+            if(transaction.isActive()){
+                transaction.rollback();
+            }
+        }
+    }
 
 }
