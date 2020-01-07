@@ -1,3 +1,4 @@
+import entity.Boat;
 import entity.Dock;
 
 import javax.persistence.EntityManager;
@@ -53,6 +54,22 @@ public class Main {
             Dock dock1 = new Dock();
             dock1.setNbLocation(10);
             entityManager.persist(dock1);
+            transaction.commit();
+        }catch (Exception e){
+            if(transaction.isActive()){
+                transaction.rollback();
+            }
+        }
+    }
+
+    private void persistBoat(EntityManager entityManager){
+        EntityTransaction transaction = entityManager.getTransaction();
+        try{
+            transaction.begin();
+            Boat boat1 = new Boat();
+            boat1.setName("Boat1");
+            boat1.setWight(200);
+            entityManager.persist(boat1);
             transaction.commit();
         }catch (Exception e){
             if(transaction.isActive()){
