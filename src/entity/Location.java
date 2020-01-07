@@ -1,13 +1,11 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Location {
     @Id
+    @GeneratedValue
     private int id;
 
     private String size;

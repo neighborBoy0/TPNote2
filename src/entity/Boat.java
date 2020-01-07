@@ -1,15 +1,15 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Boat {
     @Id
+    @GeneratedValue
     private int id;
+    @Column(nullable = false, unique = true)
     private String name;
+
     private float wight;
 
     @OneToOne
