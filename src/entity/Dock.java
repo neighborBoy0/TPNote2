@@ -12,10 +12,11 @@ public class Dock {
 
     private int nbLocation;
 
-    @OneToMany
-    private List<Dock> docks;
+    @OneToMany(mappedBy = "dock")
+    private List<Location> locations;
 
-    public Dock(){}
+    public Dock() {
+    }
 
     public int getId() {
         return id;
@@ -33,11 +34,11 @@ public class Dock {
         this.nbLocation = nbLocation;
     }
 
-    public List<Dock> getDocks() {
-        return docks;
+    public List<Location> getLocations() {
+        return locations;
     }
 
-    public void setDocks(List<Dock> docks) {
-        this.docks = docks;
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }
