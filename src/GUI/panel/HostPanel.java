@@ -3,6 +3,7 @@ package GUI.panel;
 import GUI.Util.GUIUtil;
 import GUI.model.DockInfoTableModel;
 import GUI.model.DockTableModel;
+import GUI.model.HostTableModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,24 +23,19 @@ public class HostPanel extends WorkingPanel{
 
     //JTextField
 
-    String columnNames1[] = new String[]{"ID", "Nombre d'emplacement"};
-
-    String columnNames2[] = new String[]{"ID d'Emplacement", "ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
+    //Table Column Name
+    String columnNames[] = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
     //JTable
-    public DockTableModel dtm = new DockTableModel();
-    public DockInfoTableModel ditm = new DockInfoTableModel();
-
-    public JTable t = new JTable(dtm);
-    public JTable tInfo = new JTable(ditm);
+    public HostTableModel tm = new HostTableModel();
+    public JTable t = new JTable(tm);
 
 
     private HostPanel() {
 
         JScrollPane sp1 = new JScrollPane(t);
-        JScrollPane sp2 = new JScrollPane(tInfo);
-        JPanel pLeft = new JPanel();
-        JPanel pRight = new JPanel();
+
+        JPanel pCenter = new JPanel();
         JPanel pSubmit = new JPanel();
 
         pSubmit.add(bAdd);
@@ -48,15 +44,14 @@ public class HostPanel extends WorkingPanel{
         pSubmit.add(bSearch);
         pSubmit.setLayout(new GridLayout(1, 4, 10, 10));
 
-        pLeft.add(sp1);
-
-        pRight.add(sp2);
-        pRight.add(pSubmit);
+        sp1.setPreferredSize(new Dimension(890, 540));
+        pCenter.add(sp1);
+        pCenter.setPreferredSize(new Dimension(900, 550));
 
         this.setLayout(new BorderLayout(20, 20));
-        this.setPreferredSize(new Dimension(800, 600));
-        this.add(pLeft, BorderLayout.EAST);
-        this.add(pRight, BorderLayout.WEST);
+        this.setPreferredSize(new Dimension(900, 600));
+        this.add(pCenter, BorderLayout.CENTER);
+        this.add(pSubmit, BorderLayout.SOUTH);
 
         addListener();
 

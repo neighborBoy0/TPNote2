@@ -11,7 +11,7 @@ public class MainFrame extends JFrame {
     private MainFrame(){
 
         //设置窗体大小
-        this.setSize(1200,800);
+        this.setSize(1000,700);
 
         //设置窗口标题
         this.setTitle("La gestion des quais d'un port de plaisance");

@@ -5,7 +5,7 @@ import javax.swing.table.TableModel;
 
 public class BoatTableModel implements TableModel {
 
-    String columnNames[] = new String[]{"ID", "Nom", "Type"};
+    String columnNames[] = new String[]{"ID Bateau", "Nom", "Type"};
 
     @Override
     public int getRowCount() {

@@ -24,7 +24,7 @@ public class BoatPanel extends WorkingPanel{
 
     //JTextField
 
-    String columnNames1[] = new String[]{"ID", "Nom", "Type"};
+    String columnNames1[] = new String[]{"ID Bateau", "Nom", "Type"};
 
     String columnNames2[] = new String[]{"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire", "ID Quai", "ID Emplacement"};
 
@@ -50,15 +50,21 @@ public class BoatPanel extends WorkingPanel{
         pSubmit.add(bSearch);
         pSubmit.setLayout(new GridLayout(1, 4, 10, 10));
 
+        sp1.setPreferredSize(new Dimension(280, 500));
         pLeft.add(sp1);
+        pLeft.setPreferredSize(new Dimension(290, 600));
 
-        pRight.add(sp2);
-        pRight.add(pSubmit);
+        pRight.setLayout(new BorderLayout(20,20));
+        pRight.setPreferredSize(new Dimension(600, 600));
+        pRight.add(sp2, BorderLayout.CENTER);
+        pRight.add(pSubmit, BorderLayout.SOUTH);
+
+
 
         this.setLayout(new BorderLayout(20, 20));
-        this.setPreferredSize(new Dimension(800, 600));
-        this.add(pLeft, BorderLayout.EAST);
-        this.add(pRight, BorderLayout.WEST);
+        this.setPreferredSize(new Dimension(900, 600));
+        this.add(pLeft, BorderLayout.WEST);
+        this.add(pRight, BorderLayout.EAST);
 
         addListener();
     }

@@ -1,16 +1,13 @@
 package GUI.model;
 
-import entity.Dock;
-
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
-import java.util.List;
 
-public class DockTableModel implements TableModel {
+public class HostTableModel implements TableModel {
 
-    String columnNames[] = new String[]{"ID Quai", "Nombre d'emplacement"};
+    String columnNames[] = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
-    //public List<Dock> ds = new DockService()
+    //public List<Host> hs = new HostService()
 
     @Override
     public int getRowCount() {
