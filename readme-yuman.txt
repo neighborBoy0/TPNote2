@@ -5,3 +5,6 @@ Log by Yuman:
 3. OneToOne(mappedby="") is important
 4. A good article teach JPA and Hiberate:
 https://www.javacodegeeks.com/2015/04/jpa%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.html
+
+2020-01-08
+1. surface->sailArea
