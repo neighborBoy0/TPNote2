@@ -4,13 +4,24 @@ import javax.persistence.Entity;
 
 @Entity
 public class SailBoat extends Boat {
-    private float surface;
 
-    public float getSurface() {
-        return surface;
+    private float sailArea;
+
+    public SailBoat(){
     }
 
-    public void setSurface(float surface) {
-        this.surface = surface;
+    public SailBoat(String name, float wight, float sailArea) {
+        super();
+        super.setName(name);
+        super.setWight(wight);
+        this.sailArea = sailArea;
+    }
+
+    public float getSailArea() {
+        return sailArea;
+    }
+
+    public void setSailArea(float sailArea) {
+        this.sailArea = sailArea;
     }
 }
