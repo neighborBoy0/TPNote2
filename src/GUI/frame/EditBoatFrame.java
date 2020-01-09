@@ -36,5 +36,10 @@ public class EditBoatFrame extends JFrame {
         this.setDefaultCloseOperation(EditBoatFrame.DISPOSE_ON_CLOSE);
     }
 
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
+
 }
 

@@ -14,7 +14,7 @@ public class AddBoatFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création");
+        this.setTitle("Création du bateau");
 
         //get main panel
         JPanel p = AddBoatPanel.instance;
@@ -34,6 +34,11 @@ public class AddBoatFrame extends JFrame {
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
         this.setDefaultCloseOperation(AddBoatFrame.DISPOSE_ON_CLOSE);
+    }
+
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
     }
 
 }

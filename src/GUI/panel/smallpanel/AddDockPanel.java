@@ -10,31 +10,40 @@ public class AddDockPanel extends JPanel {
     public static AddDockPanel instance = new AddDockPanel();
 
     //JLable
-    JLabel lnb = new JLabel("Veuillez entrer le nombre d'emplacements pour le nouveau quai:");
+    JLabel lsize = new JLabel("Taille du nouveau quai:");
     public JLabel lmsg = new JLabel();
 
     //JTextField
-    public JTextField tfnb = new JTextField();
+    public JTextField tfsize = new JTextField();
+
+    public JTextArea ta = new JTextArea();
 
     //JButton
     public JButton bAdd = new JButton("Ajouter");
+    public JButton bCon = new JButton("Confirmer");
 
     private AddDockPanel(){
-        JPanel pWork = new JPanel();
+        JPanel pNorth = new JPanel();
+        JPanel pCenter = new JPanel();
         JPanel pSubmit = new JPanel();
 
-        pWork.add(lnb);
-        pWork.add(tfnb);
+        pNorth.add(lsize);
+        pNorth.add(tfsize);
+        pNorth.add(bAdd);
 
-        pSubmit.add(bAdd);
+        pCenter.add(ta);
+
+        pSubmit.add(bCon);
         pSubmit.add(lmsg);
 
         //Disposition des panneaux
-        pWork.setLayout(new GridLayout(2,1,10,10));
+        pNorth.setLayout(new GridLayout(2,1,10,10));
+        pCenter.setLayout(new GridLayout(1,1,20,20));
 
         this.setLayout(new BorderLayout());
-        this.add(pWork, BorderLayout.NORTH);
-        this.add(pSubmit,BorderLayout.SOUTH);
+        this.add(pNorth, BorderLayout.NORTH);
+        this.add(pCenter, BorderLayout.CENTER);
+        this.add(pSubmit, BorderLayout.SOUTH);
 
         addListener();
     }

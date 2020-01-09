@@ -10,11 +10,13 @@ public class AddHostPanel extends JPanel {
     public static AddHostPanel instance = new AddHostPanel();
 
     //JLable
-    JLabel lnb = new JLabel("Veuillez entrer le nombre d'emplacements pour le nouveau quai:");
+    JLabel lnom = new JLabel("Nom:");
+    JLabel ladr = new JLabel("Adresse:");
     public JLabel lmsg = new JLabel();
 
     //JTextField
-    public JTextField tfnb = new JTextField();
+    public JTextField tfnom = new JTextField();
+    public JTextField tfadr = new JTextField();
 
     //JButton
     public JButton bAdd = new JButton("Ajouter");
@@ -23,14 +25,16 @@ public class AddHostPanel extends JPanel {
         JPanel pWork = new JPanel();
         JPanel pSubmit = new JPanel();
 
-        pWork.add(lnb);
-        pWork.add(tfnb);
+        pWork.add(lnom);
+        pWork.add(tfnom);
+        pWork.add(ladr);
+        pWork.add(tfadr);
 
         pSubmit.add(bAdd);
         pSubmit.add(lmsg);
 
         //Disposition des panneaux
-        pWork.setLayout(new GridLayout(2,1,10,10));
+        pWork.setLayout(new GridLayout(2,2,10,10));
 
         this.setLayout(new BorderLayout());
         this.add(pWork, BorderLayout.NORTH);

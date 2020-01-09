@@ -13,7 +13,7 @@ public class AddDockFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création");
+        this.setTitle("Création du quai");
 
         //get main panel
         JPanel p = AddDockPanel.instance;
