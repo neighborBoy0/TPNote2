@@ -9,7 +9,7 @@ public class DeleteBoatPanel extends JPanel {
     public static DeleteBoatPanel instance = new DeleteBoatPanel();
 
     //JLable
-    JLabel lid = new JLabel("ID:");
+    JLabel lid = new JLabel("ID Bateau:");
 
     public JLabel lmsg = new JLabel();
 

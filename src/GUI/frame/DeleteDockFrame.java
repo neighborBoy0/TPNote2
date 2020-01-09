@@ -36,5 +36,9 @@ public class DeleteDockFrame extends JFrame {
         this.setDefaultCloseOperation(DeleteDockFrame.DISPOSE_ON_CLOSE);
     }
 
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
 }
 

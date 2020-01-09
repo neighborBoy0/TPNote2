@@ -36,4 +36,8 @@ public class DeleteHostFrame extends JFrame {
         this.setDefaultCloseOperation(DeleteHostFrame.DISPOSE_ON_CLOSE);
     }
 
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
 }

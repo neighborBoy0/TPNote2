@@ -36,5 +36,10 @@ public class SearchBoatFrame extends JFrame {
         this.setDefaultCloseOperation(SearchBoatFrame.DISPOSE_ON_CLOSE);
     }
 
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
+
 }
 
