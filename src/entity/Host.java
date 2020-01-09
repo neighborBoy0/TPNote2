@@ -19,6 +19,11 @@ public class Host {
 
     public Host(){}
 
+    public Host(String name, String adr){
+        this.setName(name);
+        this.setAddress(adr);
+    }
+
     public int getId() {
         return id;
     }

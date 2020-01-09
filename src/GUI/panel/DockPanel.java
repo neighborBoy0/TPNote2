@@ -7,6 +7,8 @@ import GUI.model.DockTableModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class DockPanel extends WorkingPanel{
 
@@ -34,6 +36,7 @@ public class DockPanel extends WorkingPanel{
 
 
     private DockPanel(){
+        //JSplitPane p = new JSplitPane();
 
         JScrollPane sp1 = new JScrollPane(t);
         JScrollPane sp2 = new JScrollPane(tInfo);
@@ -60,8 +63,29 @@ public class DockPanel extends WorkingPanel{
         this.setPreferredSize(new Dimension(900, 600));
         this.add(pLeft, BorderLayout.WEST);
         this.add(pRight, BorderLayout.EAST);
+        //p.setLeftComponent(pLeft);
+        //p.setRightComponent(pRight);
+        //this.add(p, BorderLayout.CENTER);
 
         addListener();
+
+        //if double check the table, open right information table
+        t.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount() == 2){
+                    int rowIndex = t.getSelectedRow();
+                    if(rowIndex >= 0){
+                        String id = (String) t.getModel().getValueAt(rowIndex, 1);
+                        String nb = (String) t.getModel().getValueAt(rowIndex, 2);
+
+                        //search from DB
+
+
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -76,6 +100,11 @@ public class DockPanel extends WorkingPanel{
         bEdit.addActionListener(l);
         bDelete.addActionListener(l);
         bSearch.addActionListener(l);
+    }
+
+    private void initLeftPane(){
+        JPanel pLeft = new JPanel();
+
     }
 
     public static void main(String[] args) {

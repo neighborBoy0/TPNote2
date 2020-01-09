@@ -10,6 +10,7 @@ import GUI.panel.smallpanel.AddHostPanel;
 import GUI.panel.smallpanel.DeleteHostPanel;
 import GUI.panel.smallpanel.EditHostPanel;
 import GUI.panel.smallpanel.SearchHostPanel;
+import entity.Host;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -46,6 +47,12 @@ public class HostListener implements ActionListener {
 
         //AddDockPanel Listener
         if(button == ap.bAdd){
+            String nom = ap.tfnom.getText();
+            String adr = ap.tfadr.getText();
+
+            Host host = new Host(nom, adr);
+
+
 
         }
 
