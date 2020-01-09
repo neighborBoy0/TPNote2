@@ -14,7 +14,7 @@ public class EditBoatFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du bateau");
 
         //get main panel
         JPanel p = EditBoatPanel.instance;

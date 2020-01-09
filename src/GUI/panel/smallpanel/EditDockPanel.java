@@ -3,6 +3,7 @@ package GUI.panel.smallpanel;
 import GUI.listener.DockListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class EditDockPanel extends JPanel {
@@ -39,8 +40,9 @@ public class EditDockPanel extends JPanel {
         pNorth.add(tfsize);
         pNorth.add(bAdd);
 
-        pCenter.add(ta);
-        pCenter.add(bCon);
+        pCenter.setLayout(new BorderLayout());
+        pCenter.add(ta, BorderLayout.CENTER);
+        pCenter.add(bCon, BorderLayout.SOUTH);
 
         pSouth.add(ldelL);
         pSouth.add(lvide2);
@@ -51,10 +53,10 @@ public class EditDockPanel extends JPanel {
 
         //Disposition des panneaux
         pNorth.setLayout(new GridLayout(3,2,10,10));
-        pCenter.setLayout(new GridLayout(2,1,20,20));
         pSouth.setLayout(new GridLayout(3, 2,10,10));
 
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout(20,20));
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pNorth, BorderLayout.NORTH);
         this.add(pCenter, BorderLayout.CENTER);
         this.add(pSouth, BorderLayout.SOUTH);
@@ -63,8 +65,10 @@ public class EditDockPanel extends JPanel {
     }
 
     public void addListener() {
-        DockListener add = new DockListener();
-        bAdd.addActionListener(add);
+        DockListener l = new DockListener();
+        bAdd.addActionListener(l);
+        bCon.addActionListener(l);
+        bDel.addActionListener(l);
     }
 
 }

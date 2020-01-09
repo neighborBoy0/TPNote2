@@ -14,7 +14,7 @@ public class AddHostFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création de la propriétaire");
+        this.setTitle("Création du propriétaire");
 
         //get main panel
         JPanel p = AddHostPanel.instance;

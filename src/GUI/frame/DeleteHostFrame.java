@@ -14,7 +14,7 @@ public class DeleteHostFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Supprimation");
+        this.setTitle("Supprimation du propriétaire");
 
         //get main panel
         JPanel p = DeleteHostPanel.instance;

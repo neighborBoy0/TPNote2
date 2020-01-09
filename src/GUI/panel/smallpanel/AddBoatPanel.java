@@ -4,6 +4,7 @@ import GUI.listener.BoatListener;
 import GUI.listener.DockListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class AddBoatPanel extends JPanel {
@@ -60,6 +61,7 @@ public class AddBoatPanel extends JPanel {
         pWork.setLayout(new GridLayout(7,2,10,10));
 
         this.setLayout(new BorderLayout());
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.CENTER);
         this.add(pSubmit,BorderLayout.SOUTH);
 

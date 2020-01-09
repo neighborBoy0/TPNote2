@@ -14,7 +14,7 @@ public class EditHostFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du propriétaire");
 
         //get main panel
         JPanel p = EditHostPanel.instance;

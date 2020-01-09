@@ -3,6 +3,7 @@ package GUI.panel.smallpanel;
 import GUI.listener.BoatListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class DeleteBoatPanel extends JPanel {
@@ -36,6 +37,7 @@ public class DeleteBoatPanel extends JPanel {
         //pSubmit.setLayout(new GridLayout(2,1,gap,gap));
 
         this.setLayout(new BorderLayout(40,40));
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.NORTH);
         this.add(pSubmit,BorderLayout.SOUTH);
 

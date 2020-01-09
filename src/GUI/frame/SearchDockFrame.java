@@ -14,7 +14,7 @@ public class SearchDockFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du quai");
 
         //get main panel
         JPanel p = SearchDockPanel.instance;
