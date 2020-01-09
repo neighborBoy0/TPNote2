@@ -1,23 +1,23 @@
 package GUI.frame;
 
-import GUI.panel.smallpanel.AddBoatPanel;
-import GUI.panel.smallpanel.AddDockPanel;
+import GUI.panel.smallpanel.EditBoatPanel;
+import GUI.panel.smallpanel.SearchBoatPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AddBoatFrame extends JFrame {
-    public static AddBoatFrame instance = new AddBoatFrame();
+public class SearchBoatFrame extends JFrame {
+    public static SearchBoatFrame instance = new SearchBoatFrame();
 
-    private AddBoatFrame(){
+    private SearchBoatFrame(){
         //set frame size
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création");
+        this.setTitle("Modification");
 
         //get main panel
-        JPanel p = AddBoatPanel.instance;
+        JPanel p = SearchBoatPanel.instance;
 
         //set panel size
         p.setPreferredSize(new Dimension(200, 400));
@@ -33,7 +33,8 @@ public class AddBoatFrame extends JFrame {
 
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
-        this.setDefaultCloseOperation(AddBoatFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(SearchBoatFrame.DISPOSE_ON_CLOSE);
     }
 
 }
+

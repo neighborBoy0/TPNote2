@@ -33,7 +33,7 @@ public class AddHostFrame extends JFrame {
 
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
-        this.setDefaultCloseOperation(AddDockFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(AddHostFrame.DISPOSE_ON_CLOSE);
     }
 
     //test this module

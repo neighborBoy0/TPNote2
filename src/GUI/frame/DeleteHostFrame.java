@@ -1,23 +1,23 @@
 package GUI.frame;
 
-import GUI.panel.smallpanel.AddBoatPanel;
-import GUI.panel.smallpanel.AddDockPanel;
+import GUI.panel.smallpanel.DeleteBoatPanel;
+import GUI.panel.smallpanel.DeleteHostPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AddBoatFrame extends JFrame {
-    public static AddBoatFrame instance = new AddBoatFrame();
+public class DeleteHostFrame extends JFrame {
+    public static DeleteHostFrame instance = new DeleteHostFrame();
 
-    private AddBoatFrame(){
+    private DeleteHostFrame(){
         //set frame size
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création");
+        this.setTitle("Supprimation");
 
         //get main panel
-        JPanel p = AddBoatPanel.instance;
+        JPanel p = DeleteHostPanel.instance;
 
         //set panel size
         p.setPreferredSize(new Dimension(200, 400));
@@ -33,7 +33,7 @@ public class AddBoatFrame extends JFrame {
 
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
-        this.setDefaultCloseOperation(AddBoatFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(DeleteHostFrame.DISPOSE_ON_CLOSE);
     }
 
 }

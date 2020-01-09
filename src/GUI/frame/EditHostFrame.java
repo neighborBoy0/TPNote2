@@ -1,23 +1,23 @@
 package GUI.frame;
 
-import GUI.panel.smallpanel.AddBoatPanel;
-import GUI.panel.smallpanel.AddDockPanel;
+import GUI.panel.smallpanel.EditBoatPanel;
+import GUI.panel.smallpanel.EditHostPanel;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class AddBoatFrame extends JFrame {
-    public static AddBoatFrame instance = new AddBoatFrame();
+public class EditHostFrame extends JFrame {
+    public static EditHostFrame instance = new EditHostFrame();
 
-    private AddBoatFrame(){
+    private EditHostFrame(){
         //set frame size
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Création");
+        this.setTitle("Modification");
 
         //get main panel
-        JPanel p = AddBoatPanel.instance;
+        JPanel p = EditHostPanel.instance;
 
         //set panel size
         p.setPreferredSize(new Dimension(200, 400));
@@ -33,7 +33,8 @@ public class AddBoatFrame extends JFrame {
 
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
-        this.setDefaultCloseOperation(AddBoatFrame.DISPOSE_ON_CLOSE);
+        this.setDefaultCloseOperation(EditHostFrame.DISPOSE_ON_CLOSE);
     }
 
 }
+
