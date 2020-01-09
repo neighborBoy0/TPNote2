@@ -1,6 +1,7 @@
 package GUI.panel;
 
 import GUI.Util.GUIUtil;
+import GUI.listener.DockListener;
 import GUI.model.DockInfoTableModel;
 import GUI.model.DockTableModel;
 
@@ -19,9 +20,6 @@ public class DockPanel extends WorkingPanel{
 
     //JLabel
     JLabel ltitle = new JLabel("Liste de quais");
-
-
-    //JTextField
 
     String columnListe[] = new String[]{"ID Quai", "Nombre d'emplacement"};
 
@@ -64,8 +62,6 @@ public class DockPanel extends WorkingPanel{
         this.add(pRight, BorderLayout.EAST);
 
         addListener();
-
-
     }
 
     @Override
@@ -75,7 +71,11 @@ public class DockPanel extends WorkingPanel{
 
     @Override
     public void addListener() {
-
+        DockListener l = new DockListener();
+        bAdd.addActionListener(l);
+        bEdit.addActionListener(l);
+        bDelete.addActionListener(l);
+        bSearch.addActionListener(l);
     }
 
     public static void main(String[] args) {
