@@ -1,10 +1,10 @@
 package GUI.panel;
 
 import GUI.Util.GUIUtil;
+import GUI.listener.BoatListener;
 import GUI.model.BoatInfoTableModel;
 import GUI.model.BoatTableModel;
-import GUI.model.DockInfoTableModel;
-import GUI.model.DockTableModel;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,6 +76,11 @@ public class BoatPanel extends WorkingPanel{
 
     @Override
     public void addListener() {
+        BoatListener l = new BoatListener();
+        bAdd.addActionListener(l);
+        bEdit.addActionListener(l);
+        bDelete.addActionListener(l);
+        bSearch.addActionListener(l);
 
     }
 
