@@ -3,6 +3,8 @@ package entity;
 import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn()
 public class Boat {
     @Id
     @GeneratedValue
@@ -19,6 +21,13 @@ public class Boat {
     private Host host;
 
     public Boat(){}
+
+    public Boat(Boat boat){
+        this.name = boat.name;
+        this.wight = boat.wight;
+        this.location = boat.location;
+        this.host = boat.host;
+    }
 
     public int getId() {
         return id;

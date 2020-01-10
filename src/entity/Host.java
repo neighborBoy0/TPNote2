@@ -59,4 +59,8 @@ public class Host {
     public void addBoats(Boat boat){
         this.boats.add(boat);
     }
+
+    public boolean delBoat(Boat boat){
+        return boats.remove(boat);
+    }
 }
