@@ -4,13 +4,12 @@ import GUI.frame.AddHostFrame;
 import GUI.frame.DeleteHostFrame;
 import GUI.frame.EditHostFrame;
 import GUI.frame.SearchHostFrame;
-import GUI.panel.BoatPanel;
 import GUI.panel.HostPanel;
 import GUI.panel.smallpanel.AddHostPanel;
 import GUI.panel.smallpanel.DeleteHostPanel;
 import GUI.panel.smallpanel.EditHostPanel;
 import GUI.panel.smallpanel.SearchHostPanel;
-import entity.Host;
+import service.HostService;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +18,8 @@ import java.awt.event.ActionListener;
 public class HostListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
+        HostService hs = new HostService();
+
         HostPanel p = HostPanel.instance;
         AddHostPanel ap = AddHostPanel.instance;
         EditHostPanel ep = EditHostPanel.instance;
@@ -45,28 +46,30 @@ public class HostListener implements ActionListener {
             f.setVisible(true);
         }
 
-        //AddDockPanel Listener
+        //AddHostPanel Listener
         if(button == ap.bAdd){
             String nom = ap.tfnom.getText();
             String adr = ap.tfadr.getText();
-
-            Host host = new Host(nom, adr);
-
-
-
+            hs.createHost(nom,adr);
+            ap.tfnom.setText(null);
+            ap.tfadr.setText(null);
         }
 
-        //EditDockPanel Listener
+        //EditHostPanel Listener
         if(button == ep.bEdit){
-
+            int id = Integer.valueOf(ep.tfid.getText());
+            String name = ep.tfname.getText();
+            String address = ep.tfaddr.getText();
+            hs.editHost(id, name, address);
         }
 
-        //DeleteDockPanel Listener
+        //DeleteHostPanel Listener
         if(button == dp.bDelete){
-
+            hs.delHost(Integer.valueOf(dp.tfid.getText()));
+            dp.tfid.setText(null);
         }
 
-        //SearchDockPanel Listener
+        //SearchHostPanel Listener
         if(button == sp.bSearch){
 
         }
