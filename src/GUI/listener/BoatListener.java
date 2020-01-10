@@ -45,12 +45,17 @@ public class BoatListener implements ActionListener {
 
         //AddDockPanel Listener
         if(button == ap.bAdd){
-            bs.addBoat(ap.tfnom.getText(),(String)ap.cbtype.getSelectedItem(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText());
+            if(bs.addBoat(ap.tfnom.getText(),(String)ap.cbtype.getSelectedItem(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText())){
+                ap.lmsg.setText("Créé avec succès!");
+            } else{
+                ap.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             ap.tfnom.setText(null);
             //ap.tftype.setText(null);
             ap.tfwigh.setText(null);
             ap.tfhost.setText(null);
             ap.tfloca.setText(null);
+
         }
 
         //EditDockPanel Listener
@@ -60,7 +65,11 @@ public class BoatListener implements ActionListener {
 
         //DeleteDockPanel Listener
         if(button == dp.bDelete){
-            bs.delBoat(Integer.valueOf(dp.tfid.getText()));
+            if(bs.delBoat(Integer.valueOf(dp.tfid.getText()))){
+                dp.lmsg.setText("Supprimé avec succès!");
+            }else{
+                dp.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             dp.tfid.setText(null);
         }
 

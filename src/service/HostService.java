@@ -13,11 +13,12 @@ public class HostService {
     session s = new session();
     List<Boat> boatList;
 
-    public void createHost(String name, String address){
+    public boolean createHost(String name, String address){
         host = new Host();
         host.setName(name);
         host.setAddress(address);
         s.addT(host);
+        return true;
     }
 
     public boolean delHost(int id){
