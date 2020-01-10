@@ -1,19 +1,18 @@
 package service;
 import entity.Location;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import service.session.sessionLocation;
 
 public class LocationService {
-    //private Location location;
-    //private LocationDAO locationDAO = new LocationDAO();
+    private Location location;
+    private sessionLocation sl = new sessionLocation();
 
     public Location createLocation(String size){
+        location = new Location();
+        location.setSize(size);
+        return location;
+    }
 
-        Location tempLocation = new Location();
-        tempLocation.setSize(size);
-        //locationDAO.addLocation(tempLocation);
-        return tempLocation;
+    public void delLocation(int id){
+
     }
 }
