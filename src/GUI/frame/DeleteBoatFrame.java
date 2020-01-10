@@ -14,7 +14,7 @@ public class DeleteBoatFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Supprimation");
+        this.setTitle("Supprimation du bateau");
 
         //get main panel
         JPanel p = DeleteBoatPanel.instance;
@@ -35,5 +35,11 @@ public class DeleteBoatFrame extends JFrame {
         // DISPOSE_ON_CLOSE: only close this frame
         this.setDefaultCloseOperation(DeleteBoatFrame.DISPOSE_ON_CLOSE);
     }
+
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
+
 
 }

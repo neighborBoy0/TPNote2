@@ -3,13 +3,14 @@ package GUI.panel.smallpanel;
 import GUI.listener.BoatListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class DeleteHostPanel extends JPanel {
     public static DeleteHostPanel instance = new DeleteHostPanel();
 
     //JLable
-    JLabel lid = new JLabel("ID:");
+    JLabel lid = new JLabel("ID Propriétaire:");
 
     public JLabel lmsg = new JLabel();
 
@@ -31,11 +32,10 @@ public class DeleteHostPanel extends JPanel {
         pSubmit.add(lmsg);
 
         //Disposition des panneaux
-        int gap = 10;
-        pWork.setLayout(new GridLayout(1,3,gap,gap));
-        //pSubmit.setLayout(new GridLayout(2,1,gap,gap));
+        pWork.setLayout(new GridLayout(1,3,10,10));
 
         this.setLayout(new BorderLayout(40,40));
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.NORTH);
         this.add(pSubmit,BorderLayout.SOUTH);
 

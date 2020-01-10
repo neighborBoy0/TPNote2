@@ -11,10 +11,10 @@ public class EditDockFrame extends JFrame {
 
     private EditDockFrame(){
         //set frame size
-        this.setSize(600, 400);
+        this.setSize(600, 500);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du quai");
 
         //get main panel
         JPanel p = EditDockPanel.instance;
@@ -34,6 +34,11 @@ public class EditDockFrame extends JFrame {
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
         this.setDefaultCloseOperation(EditDockFrame.DISPOSE_ON_CLOSE);
+    }
+
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
     }
 
 }

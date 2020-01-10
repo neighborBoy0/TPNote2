@@ -14,7 +14,7 @@ public class DeleteDockFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Supprimation");
+        this.setTitle("Supprimation du quai");
 
         //get main panel
         JPanel p = DeleteDockPanel.instance;
@@ -36,5 +36,9 @@ public class DeleteDockFrame extends JFrame {
         this.setDefaultCloseOperation(DeleteDockFrame.DISPOSE_ON_CLOSE);
     }
 
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
+    }
 }
 

@@ -14,7 +14,7 @@ public class SearchDockFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du quai");
 
         //get main panel
         JPanel p = SearchDockPanel.instance;
@@ -34,6 +34,11 @@ public class SearchDockFrame extends JFrame {
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
         this.setDefaultCloseOperation(SearchDockFrame.DISPOSE_ON_CLOSE);
+    }
+
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
     }
 
 }

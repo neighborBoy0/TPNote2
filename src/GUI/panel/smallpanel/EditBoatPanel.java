@@ -4,6 +4,7 @@ import GUI.listener.BoatListener;
 import entity.Boat;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class EditBoatPanel extends JPanel {
@@ -60,6 +61,7 @@ public class EditBoatPanel extends JPanel {
         pWork.setLayout(new GridLayout(8,2,10,10));
 
         this.setLayout(new BorderLayout());
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.CENTER);
         this.add(pSubmit,BorderLayout.SOUTH);
 
@@ -67,8 +69,8 @@ public class EditBoatPanel extends JPanel {
     }
 
     public void addListener() {
-        BoatListener edit = new BoatListener();
-        bEdit.addActionListener(edit);
+        BoatListener l = new BoatListener();
+        bEdit.addActionListener(l);
     }
 
 }

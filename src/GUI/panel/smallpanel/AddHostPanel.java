@@ -4,6 +4,7 @@ import GUI.listener.DockListener;
 import GUI.listener.HostListener;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class AddHostPanel extends JPanel {
@@ -37,6 +38,7 @@ public class AddHostPanel extends JPanel {
         pWork.setLayout(new GridLayout(2,2,10,10));
 
         this.setLayout(new BorderLayout());
+        this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.NORTH);
         this.add(pSubmit,BorderLayout.SOUTH);
 
@@ -44,7 +46,7 @@ public class AddHostPanel extends JPanel {
     }
 
     public void addListener() {
-        HostListener add = new HostListener();
-        bAdd.addActionListener(add);
+        HostListener l = new HostListener();
+        bAdd.addActionListener(l);
     }
 }

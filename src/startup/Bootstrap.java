@@ -1,6 +1,7 @@
 package startup;
 
 import GUI.frame.MainFrame;
+import GUI.panel.DockPanel;
 import GUI.panel.MainPanel;
 
 import javax.swing.*;
@@ -15,7 +16,7 @@ public class Bootstrap {
             @Override
             public void run() {
                 MainFrame.instance.setVisible(true);
-                //MainPanel.instance.workingPanel.show(DockPanel.instance);
+                MainPanel.instance.workingPanel.show(DockPanel.instance);
             }
         });
     }

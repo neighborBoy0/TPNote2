@@ -14,7 +14,7 @@ public class SearchBoatFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification");
+        this.setTitle("Modification du bateau");
 
         //get main panel
         JPanel p = SearchBoatPanel.instance;
@@ -34,6 +34,11 @@ public class SearchBoatFrame extends JFrame {
         //set close method:
         // DISPOSE_ON_CLOSE: only close this frame
         this.setDefaultCloseOperation(SearchBoatFrame.DISPOSE_ON_CLOSE);
+    }
+
+    //test this module
+    public static void main(String[] args){
+        instance.setVisible(true);
     }
 
 }

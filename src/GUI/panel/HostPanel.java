@@ -4,6 +4,7 @@ import GUI.Util.GUIUtil;
 import GUI.model.DockInfoTableModel;
 import GUI.model.DockTableModel;
 import GUI.model.HostTableModel;
+import GUI.listener.HostListener;
 
 import javax.swing.*;
 import java.awt.*;
@@ -64,6 +65,11 @@ public class HostPanel extends WorkingPanel{
 
     @Override
     public void addListener() {
+        HostListener l = new HostListener();
+        bAdd.addActionListener(l);
+        bEdit.addActionListener(l);
+        bDelete.addActionListener(l);
+        bSearch.addActionListener(l);
 
     }
 
