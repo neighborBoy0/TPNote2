@@ -2,22 +2,21 @@ package service;
 import entity.Dock;
 import entity.Location;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DockService {
-    private List<Location> locations;
     private Dock dock;
+    private List<Location> locations = new ArrayList<Location>();
 
-    public Dock createDock(){
+    public void addDock(List<Location> locations){
         dock = new Dock();
-        dock.setNbLocation(locations.size());
-        locations.clear();
-        return dock;
+
     }
 
-    public void addLocation(Location location){
-        location.setDock(dock);
-        locations.add(location);
+    public void addLocations(Dock dock, List<Location> locations){
+        dock.setLocations(locations);
+        dock.setNbLocation(locations.size());
     }
 
     public void delLocation(int id){
