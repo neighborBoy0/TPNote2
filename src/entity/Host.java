@@ -50,4 +50,8 @@ public class Host {
     public void setBoats(List<Boat> boats) {
         this.boats = boats;
     }
+
+    public void addBoats(Boat boat){
+        this.boats.add(boat);
+    }
 }
