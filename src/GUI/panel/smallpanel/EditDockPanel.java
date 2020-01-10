@@ -22,7 +22,7 @@ public class EditDockPanel extends JPanel {
     public JTextField tfsize  = new JTextField();
     public JTextField tfidDel = new JTextField();
 
-    public JTextArea ta = new JTextArea();
+    public JTextArea ta = new JTextArea("Liste de l'emplacement: \n");
 
     //JButton
     public JButton bAdd = new JButton("Ajouter un emplacement");
@@ -50,6 +50,7 @@ public class EditDockPanel extends JPanel {
         pSouth.add(tfidDel);
         pSouth.add(bDel);
         pSouth.add(lmsg);
+        pSouth.setBorder(BorderFactory.createLineBorder(Color.black));
 
         //Disposition des panneaux
         pNorth.setLayout(new GridLayout(3,2,10,10));

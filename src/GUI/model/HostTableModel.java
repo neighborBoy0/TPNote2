@@ -1,18 +1,21 @@
 package GUI.model;
 
+import entity.Host;
+
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HostTableModel implements TableModel {
 
-    String columnNames[] = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
+    public final String[] columnNames = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
-    //public List<Host> hs = new HostService()
+    public List<Host> list = new ArrayList<Host>();
 
     @Override
     public int getRowCount() {
-        return 0;
-        //return ds.size();
+        return list.size();
     }
 
     @Override
@@ -32,15 +35,23 @@ public class HostTableModel implements TableModel {
 
     @Override
     public boolean isCellEditable(int rowIndex, int columnIndex) {
-        // TODO Auto-generated method stub
         return false;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
 
-
-
+        Host host = list.get(rowIndex);
+        switch (columnIndex){
+            case 0:
+                return host.getId();
+            case 1:
+                return host.getName();
+            case 2:
+                return host.getAddress();
+            case 3:
+                return host.getBoats().get(0).getName();
+        }
 
         return null;
 
@@ -62,6 +73,14 @@ public class HostTableModel implements TableModel {
     public void removeTableModelListener(TableModelListener l) {
         // TODO Auto-generated method stub
 
+    }
+
+    public List<Host> getList(){
+        return list;
+    }
+
+    public void setList(List<Host> list){
+        this.list = list;
     }
 
 }

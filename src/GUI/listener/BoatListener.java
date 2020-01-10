@@ -45,9 +45,9 @@ public class BoatListener implements ActionListener {
 
         //AddDockPanel Listener
         if(button == ap.bAdd){
-            bs.addBoat(ap.tfnom.getText(),ap.tftype.getText(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText());
+            bs.addBoat(ap.tfnom.getText(),(String)ap.cbtype.getSelectedItem(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText());
             ap.tfnom.setText(null);
-            ap.tftype.setText(null);
+            //ap.tftype.setText(null);
             ap.tfwigh.setText(null);
             ap.tfhost.setText(null);
             ap.tfloca.setText(null);
