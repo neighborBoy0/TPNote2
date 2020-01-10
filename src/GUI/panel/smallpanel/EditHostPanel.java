@@ -13,11 +13,13 @@ public class EditHostPanel  extends JPanel {
     //JLable
     JLabel lid = new JLabel("ID Propriétaire:");
     JLabel lname = new JLabel("Nouveau nom:");
+    JLabel laddr = new JLabel("Nouveau adresse:");
 
     public JLabel lmsg = new JLabel();
 
     public JTextField tfid = new JTextField();
     public JTextField tfname = new JTextField();
+    public JTextField tfaddr = new JTextField();
 
     public JButton bEdit = new JButton("Modifier");
 
@@ -29,7 +31,9 @@ public class EditHostPanel  extends JPanel {
         pWork.add(tfid);
         pWork.add(lname);
         pWork.add(tfname);
-        pWork.setLayout(new GridLayout(2,2,10,10));
+        pWork.add(laddr);
+        pWork.add(tfaddr);
+        pWork.setLayout(new GridLayout(3,2,10,10));
 
         pSubmit.add(bEdit);
 

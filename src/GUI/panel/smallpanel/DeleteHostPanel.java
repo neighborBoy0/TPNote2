@@ -1,6 +1,7 @@
 package GUI.panel.smallpanel;
 
 import GUI.listener.BoatListener;
+import GUI.listener.HostListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -43,7 +44,7 @@ public class DeleteHostPanel extends JPanel {
     }
 
     public void addListener() {
-        BoatListener l = new BoatListener();
+        HostListener l = new HostListener();
         bDelete.addActionListener(l);
     }
 
