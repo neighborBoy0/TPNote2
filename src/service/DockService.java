@@ -55,4 +55,8 @@ public class DockService {
         }
         return information;
     }
+
+    public List<Dock> getAllDock(){
+        return new session<Dock>().findAll(Dock.class);
+    }
 }

@@ -1,6 +1,9 @@
 package service;
 import entity.Location;
+import service.session.session;
 import service.session.sessionLocation;
+
+import java.util.List;
 
 public class LocationService {
     private Location location;
@@ -14,5 +17,9 @@ public class LocationService {
 
     public void delLocation(int id){
 
+    }
+
+    public List<Location> getAllLocation(){
+        return new session<Location>().findAll(Location.class);
     }
 }
