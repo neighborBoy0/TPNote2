@@ -13,7 +13,7 @@ public class EditBoatPanel extends JPanel {
     //JLable
     JLabel lid = new JLabel("ID:");
     JLabel lnom = new JLabel("Nom:");
-    JLabel ltype = new JLabel("Type:");
+    //JLabel ltype = new JLabel("Type:");
     JLabel lcara = new JLabel("Caractère:");
     JLabel lwigh = new JLabel("Poids:");
     JLabel lhost = new JLabel("Propriétaire");
@@ -23,7 +23,7 @@ public class EditBoatPanel extends JPanel {
 
     public JTextField tfid = new JTextField();
     public JTextField tfnom = new JTextField();
-    public JTextField tftype = new JTextField();
+    //public JTextField tftype = new JTextField();
     public JTextField tfcara = new JTextField();
     public JTextField tfwigh = new JTextField();
     public JTextField tfhost = new JTextField();
@@ -41,8 +41,8 @@ public class EditBoatPanel extends JPanel {
         pWork.add(tfid);
         pWork.add(lnom);
         pWork.add(tfnom);
-        pWork.add(ltype);
-        pWork.add(tftype);
+        //pWork.add(ltype);
+        //pWork.add(tftype);
         pWork.add(lcara);
         pWork.add(tfcara);
         pWork.add(lwigh);
@@ -58,7 +58,7 @@ public class EditBoatPanel extends JPanel {
         pSubmit.add(lmsg);
 
         //Disposition des panneaux
-        pWork.setLayout(new GridLayout(8,2,10,10));
+        pWork.setLayout(new GridLayout(7,2,10,10));
 
         this.setLayout(new BorderLayout());
         this.setBorder(new EmptyBorder(15, 15, 15, 15));
