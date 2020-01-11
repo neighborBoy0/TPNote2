@@ -45,7 +45,15 @@ public class BoatListener implements ActionListener {
 
         //AddBoatPanel Listener
         if(button == ap.bAdd){
-            if(bs.addBoat(ap.tfnom.getText(),(String)ap.cbtype.getSelectedItem(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText())){
+            String type;
+            if(ap.cbtype.getSelectedIndex()==1){
+                type = "s";
+            }else if(ap.cbtype.getSelectedIndex()==2){
+                type = "m";
+            }else{
+                type = "";
+            }
+            if(bs.addBoat(ap.tfnom.getText(),type,ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText(), ap.tfcara.getText())){
                 ap.lmsg.setText("Créé avec succès!");
             } else{
                 ap.lmsg.setText("Échoué, il y a des erreurs!");

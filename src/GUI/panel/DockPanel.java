@@ -4,6 +4,9 @@ import GUI.Util.GUIUtil;
 import GUI.listener.DockListener;
 import GUI.model.DockInfoTableModel;
 import GUI.model.DockTableModel;
+import service.DockService;
+import service.HostService;
+import service.LocationService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +16,7 @@ import java.awt.event.MouseEvent;
 public class DockPanel extends WorkingPanel{
 
     public static DockPanel instance = new DockPanel();
+    private int selectedId = 0;
 
     //JButton
     public JButton bAdd = new JButton("Création");
@@ -76,12 +80,8 @@ public class DockPanel extends WorkingPanel{
                 if(e.getClickCount() == 2){
                     int rowIndex = t.getSelectedRow();
                     if(rowIndex >= 0){
-                        String id = (String) t.getModel().getValueAt(rowIndex, 1);
-                        String nb = (String) t.getModel().getValueAt(rowIndex, 2);
-
-                        //search from DB
-
-
+                        tm2.locations = tm1.docks.get(rowIndex).getLocations();
+                        tInfo.updateUI();
                     }
                 }
             }
@@ -90,7 +90,20 @@ public class DockPanel extends WorkingPanel{
 
     @Override
     public void updateDate() {
+        tm1.docks = new DockService().getAllDock();
+        t.updateUI();
+        t.getSelectionModel().setSelectionInterval(0, 0);
 
+        /*tm2.locations = tm1.docks.get(tm2.indexDock).getLocations();
+        tInfo.updateUI();
+        tInfo.getSelectionModel().setSelectionInterval(0, 0);*/
+        if( 0 == tm1.docks.size()){
+            bEdit.setEnabled(false);
+            bDelete.setEnabled(false);
+        }else{
+            bEdit.setEnabled(true);
+            bDelete.setEnabled(true);
+        }
     }
 
     @Override

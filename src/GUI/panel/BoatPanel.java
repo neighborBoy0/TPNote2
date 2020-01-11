@@ -4,6 +4,8 @@ import GUI.Util.GUIUtil;
 import GUI.listener.BoatListener;
 import GUI.model.BoatInfoTableModel;
 import GUI.model.BoatTableModel;
+import service.BoatService;
+import service.DockService;
 
 
 import javax.swing.*;
@@ -71,7 +73,16 @@ public class BoatPanel extends WorkingPanel{
 
     @Override
     public void updateDate() {
-
+        tm2.boats = new BoatService().getAllBoat();
+        t.updateUI();
+        t.getSelectionModel().setSelectionInterval(0, 0);
+        if( 0 == tm2.boats.size()){
+            bEdit.setEnabled(false);
+            bDelete.setEnabled(false);
+        }else{
+            bEdit.setEnabled(true);
+            bDelete.setEnabled(true);
+        }
     }
 
     @Override
@@ -81,7 +92,6 @@ public class BoatPanel extends WorkingPanel{
         bEdit.addActionListener(l);
         bDelete.addActionListener(l);
         bSearch.addActionListener(l);
-
     }
 
     public static void main(String[] args) {

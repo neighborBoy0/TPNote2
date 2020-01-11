@@ -4,16 +4,19 @@ import entity.*;
 import service.session.session;
 import service.session.sessionBoat;
 
+import java.util.List;
+
 public class BoatService<T> {
     private Boat boat;
     private sessionBoat sb = new sessionBoat();
     private session s = new session();
 
-    public boolean addBoat(String name, String type, String wight, String hostId, String locationId){
+    public boolean addBoat(String name, String type, String wight, String hostId, String locationId,String character){
         if (type.equals("SailBoat") || type.equals("Sailboat") || type.equals("sailBoat") || type.equals("S") || type.equals("s")){
             SailBoat newBoat = new SailBoat();
             newBoat.setName(name);
             newBoat.setWight(Float.valueOf(wight));
+            newBoat.setSailArea(Float.valueOf(character));
             if(!hostId.equals("")){
                 Host host = (Host)s.queryByIndex(Host.class, Integer.valueOf(hostId));
                 newBoat.setHost(host);
@@ -33,6 +36,7 @@ public class BoatService<T> {
             MotorBoat newBoat = new MotorBoat();
             newBoat.setName(name);
             newBoat.setWight(Float.valueOf(wight));
+            newBoat.setHorsePower(Float.valueOf(character));
             if(!hostId.equals("")){
                 Host host = (Host)s.queryByIndex(Host.class, Integer.valueOf(hostId));
                 newBoat.setHost(host);
@@ -91,5 +95,9 @@ public class BoatService<T> {
 
     public float getBoatCharacter(int id){
         return sb.getCharacter(id);
+    }
+
+    public List<Boat> getAllBoat(){
+        return new session<Boat>().findAll(Boat.class);
     }
 }

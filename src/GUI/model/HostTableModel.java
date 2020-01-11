@@ -1,40 +1,28 @@
 package GUI.model;
 
-import entity.Boat;
 import entity.Host;
-import entity.SailBoat;
 import service.BoatService;
 import service.HostService;
-import service.session.session;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 
 public class HostTableModel implements TableModel {
     Map mapHost = new HashMap();
     Map mapBoat = new HashMap();
-    //private int indexHost = 0;
-    //private int indexBoat = 0;
-    private int row = 0;
-    private int addRow = 0;
-    HostService hs = new HostService();
     BoatService bs = new BoatService();
-    private boolean nextHost = false;
     public List<Host> hosts = new HostService().getAllHost();
 
     public final String[] columnNames = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
-    //public List<Host> list = new ArrayList<Host>();
-
     @Override
     public int getRowCount() {
         int n = hosts.size();
-        int indexHost = 0;
         int indexBoat = 0;
+        int addRow = 0;
         for (Host host :hosts) {
             if(host.getBoats().size()>1){
                 n += host.getBoats().size() - 1;
@@ -42,12 +30,11 @@ public class HostTableModel implements TableModel {
         }
         for(int i = 0; i < hosts.size(); i++){
             do{
-                mapHost.put(i+addRow,i);
-                mapBoat.put(i+addRow,indexBoat);
-                addRow++;
+                mapHost.put(i+addRow+indexBoat,i);
+                mapBoat.put(i+addRow+indexBoat,indexBoat);
                 indexBoat++;
             }while (indexBoat < hosts.get(i).getBoats().size());
-            addRow = 0;
+            addRow += indexBoat-1;
             indexBoat = 0;
         }
         return n;
