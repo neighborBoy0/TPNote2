@@ -1,6 +1,8 @@
 package GUI.model;
 
+import GUI.listener.DockListener;
 import entity.Dock;
+import service.DockService;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
@@ -10,12 +12,11 @@ public class DockTableModel implements TableModel {
 
     String columnNames[] = new String[]{"ID Quai", "Nombre d'emplacement"};
 
-    //public List<Dock> ds = new DockService()
+    public List<Dock> docks = new DockService().getAllDock();
 
     @Override
     public int getRowCount() {
-        return 0;
-        //return ds.size();
+        return docks.size();
     }
 
     @Override
@@ -41,10 +42,13 @@ public class DockTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-
-
-
+        Dock dock = docks.get(rowIndex);
+        switch (columnIndex){
+            case 0:
+                return dock.getId();
+            case 1:
+                return dock.getNbLocation();
+        }
         return null;
 
     }

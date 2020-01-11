@@ -1,16 +1,21 @@
 package GUI.model;
 
+import entity.Boat;
+import service.BoatService;
+
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.util.List;
 
 public class BoatTableModel implements TableModel {
+    private BoatService bs = new BoatService();
+    public List<Boat> boats = bs.getAllBoat();
 
     String columnNames[] = new String[]{"ID Bateau", "Nom", "Type"};
 
     @Override
     public int getRowCount() {
-        return 0;
-        //return ds.size();
+        return boats.size();
     }
 
     @Override
@@ -36,12 +41,7 @@ public class BoatTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-
-
-
         return null;
-
     }
 
     @Override
