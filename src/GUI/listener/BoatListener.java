@@ -43,7 +43,7 @@ public class BoatListener implements ActionListener {
             f.setVisible(true);
         }
 
-        //AddDockPanel Listener
+        //AddBoatPanel Listener
         if(button == ap.bAdd){
             bs.addBoat(ap.tfnom.getText(),ap.tftype.getText(),ap.tfwigh.getText(),ap.tfhost.getText(),ap.tfloca.getText());
             ap.tfnom.setText(null);
@@ -53,18 +53,25 @@ public class BoatListener implements ActionListener {
             ap.tfloca.setText(null);
         }
 
-        //EditDockPanel Listener
+        //EditBoatPanel Listener
         if(button == ep.bEdit){
-
+            bs.editBoat(Integer.valueOf(ep.tfid.getText()), ep.tfnom.getText(), ep.tfwigh.getText(),ep.tfhost.getText(),ep.tfloca.getText(),ep.tfcara.getText());
+            ep.tfid.setText(null);
+            ep.tfcara.setText(null);
+            ep.tfdock.setText(null);
+            ep.tfhost.setText(null);
+            ep.tfloca.setText(null);
+            ep.tfnom.setText(null);
+            ep.tfwigh.setText(null);
         }
 
-        //DeleteDockPanel Listener
+        //DeleteBoatPanel Listener
         if(button == dp.bDelete){
             bs.delBoat(Integer.valueOf(dp.tfid.getText()));
             dp.tfid.setText(null);
         }
 
-        //SearchDockPanel Listener
+        //SearchBoatPanel Listener
         if(button == sp.bSearch){
 
         }
