@@ -1,9 +1,15 @@
 package GUI.model;
 
+import entity.Host;
+import service.HostService;
+
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
+import java.util.List;
 
 public class HostTableModel implements TableModel {
+    HostService hs = new HostService();
+    public List<Host> hosts;
 
     String columnNames[] = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
@@ -38,12 +44,30 @@ public class HostTableModel implements TableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-
-
-
-
+        Host host = hosts.get(rowIndex);
+        switch (columnIndex) {
+            case 0:
+                return host.getId();
+            case 1:
+                return host.getName();
+            case 2:
+                return host.getAddress();
+            case 3:
+                return "3";
+            case 4:
+                return "4";
+            case 5:
+                return "5";
+            case 6:
+                return "6";
+            case 7:
+                return "7";
+            case 8:
+                return "8";
+            case 9:
+                return "9";
+        }
         return null;
-
     }
 
     @Override
