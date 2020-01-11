@@ -12,7 +12,7 @@ public class DockService {
     private List<Location> locations = new ArrayList<Location>();
     private session sl = new session();
 
-    public void addDock(List<Location> locations){
+    public boolean addDock(List<Location> locations){
         dock = new Dock();
         dock.setLocations(locations);
         dock.setNbLocation(locations.size());
@@ -21,6 +21,7 @@ public class DockService {
             location.setDock(dock);
             sl.addT(location);
         }
+        return true;
     }
 
     public boolean delDock(int id){

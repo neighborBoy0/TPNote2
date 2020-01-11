@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-    private static final Logger LOGGER = Logger.getLogger("JPA");
+    private static final Logger LOGGER = Logger.getLogger("session");
 
     public static void main(String[] args) {
         Main main = new Main();

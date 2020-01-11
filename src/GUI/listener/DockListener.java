@@ -65,7 +65,11 @@ public class DockListener implements ActionListener {
 
         }
         if(button == ap.bCon){
-            ds.addDock(locations);
+            if(ds.addDock(locations)){
+                ap.lmsg.setText("Créé avec succès!");
+            } else{
+                ap.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             ap.tfsize.setText(null);
             ap.ta.setText(null);
             locations.clear();
@@ -86,7 +90,11 @@ public class DockListener implements ActionListener {
 
         //DeleteDockPanel Listener
         if(button == dp.bDelete){
-            ds.delDock(Integer.valueOf(dp.tfid.getText()));
+            if(ds.delDock(Integer.valueOf(dp.tfid.getText()))){
+                dp.lmsg.setText("Créé avec succès!");
+            } else{
+                dp.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             dp.tfid.setText(null);
             /* 修改table显示 */
         }

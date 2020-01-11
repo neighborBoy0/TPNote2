@@ -6,6 +6,8 @@ import GUI.listener.DockListener;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class AddBoatPanel extends JPanel {
     public static AddBoatPanel instance = new AddBoatPanel();
@@ -23,12 +25,14 @@ public class AddBoatPanel extends JPanel {
 
 
     public JTextField tfnom = new JTextField();
-    public JTextField tftype = new JTextField();
+    //public JTextField tftype = new JTextField();
+    public JComboBox cbtype =  new JComboBox();
     public JTextField tfcara = new JTextField();
     public JTextField tfwigh = new JTextField();
     public JTextField tfhost = new JTextField();
     public JTextField tfdock = new JTextField();
     public JTextField tfloca = new JTextField();
+
 
 
     //JButton
@@ -38,18 +42,22 @@ public class AddBoatPanel extends JPanel {
         JPanel pWork = new JPanel();
         JPanel pSubmit = new JPanel();
 
+        cbtype.addItem("");
+        cbtype.addItem("Bateau à voile");
+        cbtype.addItem("Bateau à moteur");
+        cbtype.addItemListener(listener);
+
         pWork.add(lnom);
         pWork.add(tfnom);
         pWork.add(ltype);
-        pWork.add(tftype);
+        //pWork.add(tftype);
+        pWork.add(cbtype);
         pWork.add(lcara);
         pWork.add(tfcara);
         pWork.add(lwigh);
         pWork.add(tfwigh);
         pWork.add(lhost);
         pWork.add(tfhost);
-        pWork.add(ldock);
-        pWork.add(tfdock);
         pWork.add(lloca);
         pWork.add(tfloca);
 
@@ -58,9 +66,9 @@ public class AddBoatPanel extends JPanel {
 
 
         //Disposition des panneaux
-        pWork.setLayout(new GridLayout(7,2,10,10));
+        pWork.setLayout(new GridLayout(6,2,0,20));
 
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout(0, 30));
         this.setBorder(new EmptyBorder(15, 15, 15, 15));
         this.add(pWork, BorderLayout.CENTER);
         this.add(pSubmit,BorderLayout.SOUTH);
@@ -72,6 +80,22 @@ public class AddBoatPanel extends JPanel {
         BoatListener add = new BoatListener();
         bAdd.addActionListener(add);
     }
+
+
+    ItemListener listener = new ItemListener() {
+        @Override
+        public void itemStateChanged(ItemEvent e) {
+            if(e.getStateChange() == ItemEvent.SELECTED){
+                String type = (String)cbtype.getSelectedItem();
+                if(type == "Bateau à voile"){
+                    lcara.setText("Surface totale des voiles:");
+                }
+                if(type == "Bateau à moteur"){
+                    lcara.setText("Cheveux vapeur:");
+                }
+            }
+        }
+    };
 
 
 }

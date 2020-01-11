@@ -6,19 +6,19 @@ import service.HostService;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.List;
+import java.util.ArrayList;
 
 public class HostTableModel implements TableModel {
     HostService hs = new HostService();
     public List<Host> hosts;
 
-    String columnNames[] = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
+    public final String[] columnNames = new String[]{"ID", "Nom", "Adresse", "ID Bateau", "Nom Bateau", "Poids", "Type", "Caratère", "ID Quai", "ID Emplacement"};
 
-    //public List<Host> hs = new HostService()
+    public List<Host> list = new ArrayList<Host>();
 
     @Override
     public int getRowCount() {
-        return 0;
-        //return ds.size();
+        return list.size();
     }
 
     @Override
@@ -68,6 +68,7 @@ public class HostTableModel implements TableModel {
                 return "9";
         }
         return null;
+
     }
 
     @Override
@@ -86,6 +87,14 @@ public class HostTableModel implements TableModel {
     public void removeTableModelListener(TableModelListener l) {
         // TODO Auto-generated method stub
 
+    }
+
+    public List<Host> getList(){
+        return list;
+    }
+
+    public void setList(List<Host> list){
+        this.list = list;
     }
 
 }

@@ -50,7 +50,11 @@ public class HostListener implements ActionListener {
         if(button == ap.bAdd){
             String nom = ap.tfnom.getText();
             String adr = ap.tfadr.getText();
-            hs.createHost(nom,adr);
+            if(hs.createHost(nom,adr)){
+                ap.lmsg.setText("Créé avec succès!");
+            }else {
+                ap.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             ap.tfnom.setText(null);
             ap.tfadr.setText(null);
         }
@@ -61,11 +65,22 @@ public class HostListener implements ActionListener {
             String name = ep.tfname.getText();
             String address = ep.tfaddr.getText();
             hs.editHost(id, name, address);
+            if(hs.editHost(id, name, address)){
+                ep.lmsg.setText("Supprimé avec succès!");
+            }else {
+                ep.lmsg.setText("Échoué, il y a des erreurs!");
+            }
+            ep.tfname.setText(null);
+            ep.tfaddr.setText(null);
         }
 
         //DeleteHostPanel Listener
         if(button == dp.bDelete){
-            hs.delHost(Integer.valueOf(dp.tfid.getText()));
+            if(hs.delHost(Integer.valueOf(dp.tfid.getText()))){
+                dp.lmsg.setText("Supprimé avec succès!");
+            }else {
+                dp.lmsg.setText("Échoué, il y a des erreurs!");
+            }
             dp.tfid.setText(null);
         }
 

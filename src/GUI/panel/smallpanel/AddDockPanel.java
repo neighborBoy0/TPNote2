@@ -21,6 +21,7 @@ public class AddDockPanel extends JPanel {
 
     //JButton
     public JButton bAdd = new JButton("Ajouter");
+
     public JButton bCon = new JButton("Confirmer");
 
     private AddDockPanel(){
@@ -31,6 +32,7 @@ public class AddDockPanel extends JPanel {
         pNorth.add(lsize);
         pNorth.add(tfsize);
         pNorth.add(bAdd);
+
 
         pCenter.add(ta);
 
