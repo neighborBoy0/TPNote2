@@ -1,10 +1,13 @@
 import entity.Boat;
 import entity.Dock;
+import entity.Host;
+import service.session.session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +18,8 @@ public class Main {
         Main main = new Main();
         main.run();
 
-
+        session s = new session();
+        List<Host> hosts = s.findAll(Host.class);
 
 
         //EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
