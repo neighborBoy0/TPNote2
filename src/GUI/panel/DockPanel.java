@@ -25,7 +25,7 @@ public class DockPanel extends WorkingPanel{
     public JButton bSearch = new JButton("Recherche");
 
     //JLabel
-    JLabel ltitle = new JLabel("Liste de quais");
+    JLabel ltitle = new JLabel("Liste de quais:");
 
     String columnListe[] = new String[]{"ID Quai", "Nombre d'emplacement"};
 
@@ -65,6 +65,7 @@ public class DockPanel extends WorkingPanel{
 
         this.setLayout(new BorderLayout(20,20));
         this.setPreferredSize(new Dimension(900, 600));
+        this.add(ltitle, BorderLayout.NORTH);
         this.add(pLeft, BorderLayout.WEST);
         this.add(pRight, BorderLayout.EAST);
         //p.setLeftComponent(pLeft);

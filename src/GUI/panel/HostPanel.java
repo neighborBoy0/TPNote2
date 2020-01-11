@@ -20,8 +20,7 @@ public class HostPanel extends WorkingPanel{
     public JButton bSearch = new JButton("Recherche");
 
     //JLabel
-    JLabel ltitle = new JLabel("Liste de quais");
-
+    JLabel ltitle = new JLabel("Liste de propriétaire:");
 
     //JTextField
 
@@ -52,6 +51,7 @@ public class HostPanel extends WorkingPanel{
 
         this.setLayout(new BorderLayout(20, 20));
         this.setPreferredSize(new Dimension(900, 600));
+        this.add(ltitle, BorderLayout.NORTH);
         this.add(pCenter, BorderLayout.CENTER);
         this.add(pSubmit, BorderLayout.SOUTH);
 
