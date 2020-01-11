@@ -3,9 +3,7 @@ package GUI.panel;
 import GUI.Util.GUIUtil;
 import GUI.listener.BoatListener;
 import GUI.model.BoatInfoTableModel;
-import GUI.model.BoatTableModel;
 import service.BoatService;
-import service.DockService;
 
 
 import javax.swing.*;
@@ -21,29 +19,21 @@ public class BoatPanel extends WorkingPanel{
     public JButton bSearch = new JButton("Recherche");
 
     //JLabel
-    JLabel ltitle = new JLabel("Liste de quais");
+    JLabel ltitle = new JLabel("Liste de bateaux:");
 
 
-    //JTextField
-
-    String columnNames1[] = new String[]{"ID Bateau", "Nom", "Type"};
-
-    String columnNames2[] = new String[]{"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire", "ID Quai", "ID Emplacement"};
+    String columnNames[] = new String[]{"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire", "ID Quai", "ID Emplacement"};
 
     //JTable
-    public BoatTableModel tm1 = new BoatTableModel();
     public BoatInfoTableModel tm2 = new BoatInfoTableModel();
 
-    public JTable t = new JTable(tm1);
-    public JTable tInfo = new JTable(tm2);
+    public JTable t = new JTable(tm2);
 
 
     private BoatPanel() {
 
-        JScrollPane sp1 = new JScrollPane(t);
-        JScrollPane sp2 = new JScrollPane(tInfo);
-        JPanel pLeft = new JPanel();
-        JPanel pRight = new JPanel();
+        JScrollPane sp2 = new JScrollPane(t);
+        JPanel pWork = new JPanel();
         JPanel pSubmit = new JPanel();
 
         pSubmit.add(bAdd);
@@ -52,21 +42,18 @@ public class BoatPanel extends WorkingPanel{
         pSubmit.add(bSearch);
         pSubmit.setLayout(new GridLayout(1, 4, 10, 10));
 
-        sp1.setPreferredSize(new Dimension(280, 500));
-        pLeft.add(sp1);
-        pLeft.setPreferredSize(new Dimension(290, 600));
 
-        pRight.setLayout(new BorderLayout(20,20));
-        pRight.setPreferredSize(new Dimension(600, 600));
-        pRight.add(sp2, BorderLayout.CENTER);
-        pRight.add(pSubmit, BorderLayout.SOUTH);
+        pWork.setLayout(new BorderLayout(20,20));
+        pWork.setPreferredSize(new Dimension(600, 600));
+        pWork.add(ltitle, BorderLayout.NORTH);
+        pWork.add(sp2, BorderLayout.CENTER);
+        pWork.add(pSubmit, BorderLayout.SOUTH);
 
 
 
         this.setLayout(new BorderLayout(20, 20));
         this.setPreferredSize(new Dimension(900, 600));
-        this.add(pLeft, BorderLayout.WEST);
-        this.add(pRight, BorderLayout.EAST);
+        this.add(pWork, BorderLayout.CENTER);
 
         addListener();
     }

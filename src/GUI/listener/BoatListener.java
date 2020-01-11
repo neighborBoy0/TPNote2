@@ -60,6 +60,8 @@ public class BoatListener implements ActionListener {
             }
             ap.tfnom.setText(null);
             //ap.tftype.setText(null);
+            ap.cbtype.setSelectedIndex(0);
+            ap.tfcara.setText(null);
             ap.tfwigh.setText(null);
             ap.tfhost.setText(null);
             ap.tfloca.setText(null);
