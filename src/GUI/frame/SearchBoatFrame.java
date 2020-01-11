@@ -11,16 +11,16 @@ public class SearchBoatFrame extends JFrame {
 
     private SearchBoatFrame(){
         //set frame size
-        this.setSize(600, 400);
+        this.setSize(600, 800);
 
         //set frame title
-        this.setTitle("Modification du bateau");
+        this.setTitle("Recherche du bateau");
 
         //get main panel
         JPanel p = SearchBoatPanel.instance;
 
         //set panel size
-        p.setPreferredSize(new Dimension(200, 400));
+        p.setPreferredSize(new Dimension(600, 900));
 
         //add main panel
         this.setContentPane(p);

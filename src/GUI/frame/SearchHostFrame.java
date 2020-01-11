@@ -14,13 +14,13 @@ public class SearchHostFrame extends JFrame {
         this.setSize(600, 400);
 
         //set frame title
-        this.setTitle("Modification du propriétaire");
+        this.setTitle("Recherche du propriétaire");
 
         //get main panel
         JPanel p = SearchHostPanel.instance;
 
         //set panel size
-        p.setPreferredSize(new Dimension(200, 400));
+        p.setPreferredSize(new Dimension(600, 400));
 
         //add main panel
         this.setContentPane(p);
