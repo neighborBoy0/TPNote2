@@ -5,6 +5,7 @@ import GUI.model.DockInfoTableModel;
 import GUI.model.DockTableModel;
 import GUI.model.HostTableModel;
 import GUI.listener.HostListener;
+import service.HostService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +61,16 @@ public class HostPanel extends WorkingPanel{
 
     @Override
     public void updateDate() {
-
+        tm.hosts = new HostService().getAllHost();
+        t.updateUI();
+        t.getSelectionModel().setSelectionInterval(0, 0);
+        if( 0 == tm.hosts.size()){
+            bEdit.setEnabled(false);
+            bDelete.setEnabled(false);
+        }else{
+            bEdit.setEnabled(true);
+            bDelete.setEnabled(true);
+        }
     }
 
     @Override
