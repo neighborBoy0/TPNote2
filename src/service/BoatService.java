@@ -63,4 +63,25 @@ public class BoatService<T> {
             return false;
         }
     }
+
+    public void editBoat(int id, String name, String wight, String hostId, String locationId, String data){
+        if(!name.equals("")){
+            sb.edit(id,name);
+        }
+        if(!wight.equals("")){
+            sb.edit(id,Float.valueOf(wight));
+        }
+        if(!hostId.equals("")){
+            sb.editForeignKey(id,Integer.valueOf(hostId),Host.class);
+        }
+        if(!locationId.equals("")) {
+            sb.editForeignKey(id, Integer.valueOf(locationId), Location.class);
+        }
+        SailBoat sailBoat = (SailBoat) s.queryByIndex(SailBoat.class, id);
+        if(sailBoat != null && !data.equals("")){
+            sb.editFeature(id,Float.valueOf(data),SailBoat.class);
+        }else if(!data.equals("")){
+            sb.editFeature(id,Float.valueOf(data),MotorBoat.class);
+        }
+    }
 }

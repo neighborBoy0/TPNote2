@@ -1,9 +1,7 @@
 package service.session;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
+import javax.persistence.*;
+import java.util.List;
 
 public class session<T> {
     private T t;
@@ -33,5 +31,12 @@ public class session<T> {
         em.remove(t);
         em.getTransaction().commit();
         return true;
+    }
+
+    public <T> List<T> findAll(Class<T> entityClass){
+        String hql = "from " + entityClass.getSimpleName();
+        Query query = em.createQuery(hql);
+        List<T> tList = query.getResultList();
+        return tList;
     }
 }

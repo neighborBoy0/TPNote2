@@ -36,6 +36,10 @@ public class DockService {
         return true;
     }
 
+    public boolean editDock(int id){
+        return true;
+    }
+
     public String ResearchDock(int id){
         dock = (Dock)sl.queryByIndex(Dock.class, id);
         String information = "Quai " + id +" a " + dock.getNbLocation() + " emplacements.";

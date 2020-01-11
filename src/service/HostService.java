@@ -49,4 +49,8 @@ public class HostService {
             return true;
         }
     }
+
+    public List<Host> getAllHost(){
+        return (List<Host>) s.findAll(Host.class);
+    }
 }
