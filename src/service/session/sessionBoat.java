@@ -80,4 +80,23 @@ public class sessionBoat<T> extends session<Boat> {
             return true;
         }
     }
+
+    public String getBoatType(int id){
+        SailBoat sailBoat = em.find(SailBoat.class, id);
+        if (sailBoat != null){
+            return "SailBoat";
+        }else{
+            return "MotorBoat";
+        }
+    }
+
+    public float getCharacter(int id){
+        if (getBoatType(id).equals("SailBoat")){
+            SailBoat sailBoat = em.find(SailBoat.class, id);
+            return sailBoat.getSailArea();
+        }else{
+            MotorBoat motorBoat = em.find(MotorBoat.class, id);
+            return motorBoat.getHorsePower();
+        }
+    }
 }

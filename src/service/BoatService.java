@@ -84,4 +84,12 @@ public class BoatService<T> {
             sb.editFeature(id,Float.valueOf(data),MotorBoat.class);
         }
     }
+
+    public String getBoatType(int id){
+        return sb.getBoatType(id);
+    }
+
+    public float getBoatCharacter(int id){
+        return sb.getCharacter(id);
+    }
 }
