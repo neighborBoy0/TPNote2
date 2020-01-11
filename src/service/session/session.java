@@ -36,7 +36,7 @@ public class session<T> {
     public <T> List<T> findAll(Class<T> entityClass){
         String hql = "from " + entityClass.getSimpleName();
         Query query = em.createQuery(hql);
-        List<T> tList = query.getResultList();
+        List<T> tList = (List<T>) query.getResultList();
         return tList;
     }
 }
