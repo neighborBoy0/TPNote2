@@ -79,7 +79,10 @@ public class DockListener implements ActionListener {
 
         //EditDockPanel Listener
         if(button == ep.bAdd){
-
+            String info = ds.addLoucation(Integer.valueOf(ep.tfid.getText()),ep.tfsize.getText());
+            ep.ta.setText(info);
+            ep.tfid.setText(null);
+            ep.tfsize.setText(null);
         }
         if(button == ep.bCon){
 

@@ -61,4 +61,27 @@ public class DockService {
     public List<Dock> getAllDock(){
         return new session<Dock>().findAll(Dock.class);
     }
+
+    public String addLoucation(int idDock, String size){
+        Location location = new Location();
+        dock = (Dock) sl.queryByIndex(Dock.class, idDock);
+        location.setDock(dock);
+        int t = dock.getNbLocation();
+        dock.setNbLocation(t+1);
+        location.setSize(size);
+        sl.addT(location);
+        String str = "Vous avez ajouté un emplacement dans le quai " + dock.getId()
+                + " qui a " + dock.getNbLocation() + " emplacements, et ils sont:\n\t";
+        for(int i = 0; i < dock.getNbLocation(); i++){
+            str = str + (i+1) + ". Emplacement " + dock.getLocations().get(i).getId()
+                    + ", sa taille est " + dock.getLocations().get(i).getSize() + ".\n\t";
+            if(dock.getLocations().get(i).getBoat() != null){
+                str = str + "Bateau " + dock.getLocations().get(i).getBoat().getId()
+                        + " s'inatlle ici.\n\t";
+            }else{
+                str = str + "Pas de bateau s'intalle ici.\n\t";
+            }
+        }
+        return str;
+    }
 }
