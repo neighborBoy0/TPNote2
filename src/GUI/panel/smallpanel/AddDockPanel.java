@@ -11,7 +11,7 @@ public class AddDockPanel extends JPanel {
     public static AddDockPanel instance = new AddDockPanel();
 
     //JLable
-    JLabel lsize = new JLabel("Taille du nouveau quai:");
+    JLabel lsize = new JLabel("Nombre des nouveaux emplacements:");
     public JLabel lmsg = new JLabel();
 
     //JTextField
