@@ -33,6 +33,8 @@ public class DockService {
             location.getBoat().setLocation(null);
             sl.removeT(Location.class, location.getId());
         }
+        int n = dock.getNbLocation();
+        dock.setNbLocation(n - 1);
         sl.removeT(Dock.class, dock.getId());
         return true;
     }

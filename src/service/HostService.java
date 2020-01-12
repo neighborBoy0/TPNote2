@@ -10,7 +10,8 @@ import java.util.List;
 
 public class HostService {
     Host host;
-    session s = new session();
+    public session s = new session();
+    BoatService bs = new BoatService();
     List<Boat> boatList;
 
     public boolean createHost(String name, String address){
@@ -48,6 +49,28 @@ public class HostService {
                 sh.edit(id, address, "A");
             }
             return true;
+        }
+    }
+
+    public String rearchHost(int id){
+        Host host = (Host) (s.queryByIndex(Host.class, id));
+        if(host == null){
+            return "Pas de cette personne!";
+        }else {
+            String str = "Propriétaire " + id + " s'appelle '";
+            str = str + host.getName() + "'.\nIl/Elle habite " + host.getAddress() + ".\nIl/Elle a " + host.getBoats().size() + " bateau(x).\n";
+            for (int i = 0; i < host.getBoats().size(); i++) {
+                str = str + (i + 1) + ". Bateau " + host.getBoats().get(i).getId()
+                        + " s'appelle '" + host.getBoats().get(i).getName()
+                        + "'. Son poids est " + host.getBoats().get(i).getWight();
+                String t = bs.getBoatType(host.getBoats().get(i).getId());
+                if (t.equals("SailBoat")) {
+                    str = str + ".\n\tC'est un bateau à voiles, et sa surface voile est " + bs.getBoatCharacter(host.getBoats().get(i).getId()) + "m^2.\n";
+                } else if (t.equals("MotorBoat")) {
+                    str = str + ".\n\tC'est un bateau , et son moteur est " + bs.getBoatCharacter(host.getBoats().get(i).getId()) + "W.\n";
+                }
+            }
+            return str;
         }
     }
 
