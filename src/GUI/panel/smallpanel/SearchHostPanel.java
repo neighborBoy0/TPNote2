@@ -1,6 +1,6 @@
 package GUI.panel.smallpanel;
 
-import GUI.listener.DockListener;
+import GUI.listener.HostListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -40,7 +40,7 @@ public class SearchHostPanel extends JPanel {
     }
 
     public void addListener() {
-        DockListener l = new DockListener();
+        HostListener l = new HostListener();
         bSearch.addActionListener(l);
     }
 }

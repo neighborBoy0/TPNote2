@@ -1,6 +1,6 @@
 package GUI.panel.smallpanel;
 
-import GUI.listener.DockListener;
+import GUI.listener.BoatListener;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -115,7 +115,7 @@ public class SearchBoatPanel  extends JPanel {
     }
 
     public void addListener() {
-        DockListener l = new DockListener();
+        BoatListener l = new BoatListener();
         bSearch.addActionListener(l);
         bSearchCon.addActionListener(l);
         bSearchWight.addActionListener(l);
