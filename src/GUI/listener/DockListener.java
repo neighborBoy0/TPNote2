@@ -62,6 +62,7 @@ public class DockListener implements ActionListener {
                 AppText += '\n';
             }
             ap.ta.setText(AppText);
+            p.updateDate();
 
         }
         if(button == ap.bCon){
@@ -73,8 +74,7 @@ public class DockListener implements ActionListener {
             ap.tfsize.setText(null);
             ap.ta.setText(null);
             locations.clear();
-            //p.t.setValueAt("0",1,1);
-            /* 修改table显示 */
+            p.updateDate();
         }
 
         //EditDockPanel Listener
@@ -85,7 +85,10 @@ public class DockListener implements ActionListener {
 
         }
         if(button == ep.bDel){
-
+            ls.delLocation(Integer.valueOf(ep.tfidDel.getText()));
+            ep.lmsg.setText("Supprimé avec succès!");
+            ep.tfidDel.setText(null);
+            p.updateDate();
         }
 
         //DeleteDockPanel Listener
@@ -96,13 +99,14 @@ public class DockListener implements ActionListener {
                 dp.lmsg.setText("Échoué, il y a des erreurs!");
             }
             dp.tfid.setText(null);
-            /* 修改table显示 */
+            p.updateDate();
         }
 
         //SearchDockPanel Listener
         if(button == sp.bSearch){
             String info = ds.ResearchDock(Integer.valueOf(sp.tfid.getText()));
             sp.ta.setText(info);
+            sp.tfid.setText(null);
         }
 
     }

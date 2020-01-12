@@ -9,6 +9,8 @@ import GUI.panel.smallpanel.AddHostPanel;
 import GUI.panel.smallpanel.DeleteHostPanel;
 import GUI.panel.smallpanel.EditHostPanel;
 import GUI.panel.smallpanel.SearchHostPanel;
+import entity.Host;
+import service.BoatService;
 import service.HostService;
 
 import javax.swing.*;
@@ -57,6 +59,7 @@ public class HostListener implements ActionListener {
             }
             ap.tfnom.setText(null);
             ap.tfadr.setText(null);
+            p.updateDate();
         }
 
         //EditHostPanel Listener
@@ -72,6 +75,7 @@ public class HostListener implements ActionListener {
             }
             ep.tfname.setText(null);
             ep.tfaddr.setText(null);
+            p.updateDate();
         }
 
         //DeleteHostPanel Listener
@@ -82,12 +86,14 @@ public class HostListener implements ActionListener {
                 dp.lmsg.setText("Échoué, il y a des erreurs!");
             }
             dp.tfid.setText(null);
+            p.updateDate();
         }
 
         //SearchHostPanel Listener
         if(button == sp.bSearch){
-
+            String str = hs.rearchHost(Integer.valueOf(sp.tfid.getText()));
+            sp.ta.setText(str);
+            sp.tfid.setText(null);
         }
-
     }
 }

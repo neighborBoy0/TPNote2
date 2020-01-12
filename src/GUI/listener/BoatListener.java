@@ -65,6 +65,7 @@ public class BoatListener implements ActionListener {
             ap.tfwigh.setText(null);
             ap.tfhost.setText(null);
             ap.tfloca.setText(null);
+            p.updateDate();
 
         }
 
@@ -78,6 +79,7 @@ public class BoatListener implements ActionListener {
             ep.tfloca.setText(null);
             ep.tfnom.setText(null);
             ep.tfwigh.setText(null);
+            p.updateDate();
         }
 
         //DeleteBoatPanel Listener
@@ -88,12 +90,51 @@ public class BoatListener implements ActionListener {
                 dp.lmsg.setText("Échoué, il y a des erreurs!");
             }
             dp.tfid.setText(null);
+            p.updateDate();
         }
 
         //SearchBoatPanel Listener
         if(button == sp.bSearch){
-
+            String str = bs.researchBoatByIndex(Integer.valueOf(sp.tfid.getText()));
+            sp.ta.setText(str);
+            sp.tfid.setText(null);
         }
 
+        if(button == sp.bSearchCon){
+            String type;
+            String con;
+            if(sp.cbtype.getSelectedIndex() == 1){
+                type = "SailBoat";
+            }else{
+                type = "MotorBoat";
+            }
+            if(sp.cbcont.getSelectedIndex() == 1){
+                con = ">";
+            }else if(sp.cbcont.getSelectedIndex() == 2){
+                con = "=";
+            }else{
+                con = "<";
+            }
+            String str = bs.researchBoatByCon(type,con,Float.valueOf(sp.tfvalue.getText()));
+            sp.ta.setText(str);
+            sp.tfvalue.setText(null);
+        }
+
+        if(button == sp.bSearchWight){
+            String con;
+            switch (sp.cbcont2.getSelectedIndex()){
+                case 1:
+                    con = ">";
+                    break;
+                case 2:
+                    con = "=";
+                    break;
+                default:
+                    con = "<";
+            }
+            String str = bs.researchBoatByWight(con,Float.valueOf(sp.tfvalue2.getText()));
+            sp.ta.setText(str);
+            sp.tfvalue2.setText(null);
+        }
     }
 }
