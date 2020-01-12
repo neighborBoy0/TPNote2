@@ -92,14 +92,12 @@ public class HostTableModel implements TableModel {
             boatId = host.getBoats().get((Integer) mapBoat.get(rowIndex)).getId();
             return bs.getBoatCharacter(boatId);
         }
-        /*if(columnIndex == 8 && host.getBoats().size() > 0){
+        if(columnIndex == 8 && host.getBoats().size() > 0 && host.getBoats().get((Integer) mapBoat.get(rowIndex)).getLocation() != null){
             return host.getBoats().get((Integer) mapBoat.get(rowIndex)).getLocation().getDock().getId();
-        }*/
-        /*if(columnIndex == 9 && host.getBoats().size() > 0){
+        }
+        if(columnIndex == 9 && host.getBoats().size() > 0 && host.getBoats().get((Integer) mapBoat.get(rowIndex)).getLocation() != null){
             return host.getBoats().get((Integer) mapBoat.get(rowIndex)).getLocation().getId();
-        }*/
-
-
+        }
         return null;
 
     }

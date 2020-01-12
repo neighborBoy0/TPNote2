@@ -42,19 +42,29 @@ public class BoatInfoTableModel implements TableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Boat boat = boats.get(rowIndex);
-        switch (columnIndex){
-            case 0:
-                return boat.getId();
-            case 1:
-                return boat.getName();
-            case 2:
-                return bs.getBoatType(boat.getId());
-            case 3:
-                return bs.getBoatCharacter(boat.getId());
-            case 4:
-                return boat.getWight();
-            /*case 5:
-                return boat.getHost().getName();*/
+        if(columnIndex == 0){
+            return boat.getId();
+        }
+        if(columnIndex == 1){
+            return boat.getName();
+        }
+        if(columnIndex == 2){
+            return bs.getBoatType(boat.getId());
+        }
+        if(columnIndex == 3){
+            return bs.getBoatCharacter(boat.getId());
+        }
+        if(columnIndex == 4){
+            return boat.getWight();
+        }
+        if(columnIndex == 5 && boat.getHost() != null){
+            return boat.getHost().getName();
+        }
+        if(columnIndex == 6 && boat.getLocation() != null){
+            return boat.getLocation().getDock().getId();
+        }
+        if(columnIndex == 7 && boat.getLocation() != null){
+            return boat.getLocation().getId();
         }
         return null;
     }
