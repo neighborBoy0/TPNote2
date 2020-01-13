@@ -74,7 +74,6 @@ public class BoatListener implements ActionListener {
             bs.editBoat(Integer.valueOf(ep.tfid.getText()), ep.tfnom.getText(), ep.tfwigh.getText(),ep.tfhost.getText(),ep.tfloca.getText(),ep.tfcara.getText());
             ep.tfid.setText(null);
             ep.tfcara.setText(null);
-            ep.tfdock.setText(null);
             ep.tfhost.setText(null);
             ep.tfloca.setText(null);
             ep.tfnom.setText(null);

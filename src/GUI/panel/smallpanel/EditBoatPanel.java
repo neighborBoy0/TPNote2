@@ -17,7 +17,7 @@ public class EditBoatPanel extends JPanel {
     JLabel lcara = new JLabel("Caractère:");
     JLabel lwigh = new JLabel("Poids:");
     JLabel lhost = new JLabel("Propriétaire");
-    JLabel ldock = new JLabel("Quai ID:");
+    //JLabel ldock = new JLabel("Quai ID:");
     JLabel lloca = new JLabel("Emplacement ID:");
     public JLabel lmsg = new JLabel();
 
@@ -27,7 +27,7 @@ public class EditBoatPanel extends JPanel {
     public JTextField tfcara = new JTextField();
     public JTextField tfwigh = new JTextField();
     public JTextField tfhost = new JTextField();
-    public JTextField tfdock = new JTextField();
+    //public JTextField tfdock = new JTextField();
     public JTextField tfloca = new JTextField();
 
     public JButton bEdit = new JButton("Mise à jours");
@@ -49,8 +49,8 @@ public class EditBoatPanel extends JPanel {
         pWork.add(tfwigh);
         pWork.add(lhost);
         pWork.add(tfhost);
-        pWork.add(ldock);
-        pWork.add(tfdock);
+        //pWork.add(ldock);
+        //pWork.add(tfdock);
         pWork.add(lloca);
         pWork.add(tfloca);
 
@@ -58,7 +58,7 @@ public class EditBoatPanel extends JPanel {
         pSubmit.add(lmsg);
 
         //Disposition des panneaux
-        pWork.setLayout(new GridLayout(7,2,10,10));
+        pWork.setLayout(new GridLayout(6,2,10,10));
 
         this.setLayout(new BorderLayout());
         this.setBorder(new EmptyBorder(15, 15, 15, 15));

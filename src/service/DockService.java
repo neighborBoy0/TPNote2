@@ -29,12 +29,13 @@ public class DockService {
         if(dock == null){
             return false;
         }
-        for (Location location:locations) {
-            location.getBoat().setLocation(null);
+        for (Location location : dock.getLocations()) {
+            if(location.getBoat()!=null) {
+                location.getBoat().setLocation(null);
+            }
+            dock.delLocation(location);
             sl.removeT(Location.class, location.getId());
         }
-        int n = dock.getNbLocation();
-        dock.setNbLocation(n - 1);
         sl.removeT(Dock.class, dock.getId());
         return true;
     }
@@ -45,17 +46,20 @@ public class DockService {
 
     public String ResearchDock(int id){
         dock = (Dock)sl.queryByIndex(Dock.class, id);
-        String information = "Quai " + id +" a " + dock.getNbLocation() + " emplacements.";
-        for (Location location : dock.getLocations()) {
-            information = information + "\nEmplacement " + location.getId() + " est dans ce quai.";
-            if (location.getBoat() != null){
-                information = information + " Et bateau " + location.getBoat().getId() + " (qui s'appelle '" + location.getBoat().getName() + "') s'install ici.";
+        if (dock == null){
+            return "Quai " + id + " n'exsite pas!";
+        }else {
+            String information = "Quai " + id + " a " + dock.getNbLocation() + " emplacements.";
+            for (Location location : dock.getLocations()) {
+                information = information + "\nEmplacement " + location.getId() + " est dans ce quai.";
+                if (location.getBoat() != null) {
+                    information = information + " Et bateau " + location.getBoat().getId() + " (qui s'appelle '" + location.getBoat().getName() + "') s'install ici.";
+                } else {
+                    information = information + " Et ce emplacement est disponible";
+                }
             }
-            else{
-                information = information + " Et ce emplacement est disponible";
-            }
+            return information;
         }
-        return information;
     }
 
     public List<Dock> getAllDock(){
@@ -66,9 +70,10 @@ public class DockService {
         Location location = new Location();
         dock = (Dock) sl.queryByIndex(Dock.class, idDock);
         location.setDock(dock);
-        int t = dock.getNbLocation();
-        dock.setNbLocation(t+1);
+        //int t = dock.getNbLocation();
+        //dock.setNbLocation(t+1);
         location.setSize(size);
+        dock.addLocation(location);
         sl.addT(location);
         String str = "Vous avez ajouté un emplacement dans le quai " + dock.getId()
                 + " qui a " + dock.getNbLocation() + " emplacements, et ils sont:\n\t";

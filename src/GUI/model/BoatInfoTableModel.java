@@ -1,8 +1,11 @@
 package GUI.model;
 
 import entity.Boat;
+import entity.MotorBoat;
+import entity.SailBoat;
 import service.BoatService;
 
+import javax.management.modelmbean.ModelMBean;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 import java.util.List;
@@ -51,7 +54,9 @@ public class BoatInfoTableModel implements TableModel {
         if(columnIndex == 2){
             return bs.getBoatType(boat.getId());
         }
-        if(columnIndex == 3){
+        if(columnIndex == 3 && bs.getBoatType(boat.getId()).equals("SailBoat")){
+            return bs.getBoatCharacter(boat.getId());
+        }else if(columnIndex == 3 && bs.getBoatType(boat.getId()).equals("MotorBoat")){
             return bs.getBoatCharacter(boat.getId());
         }
         if(columnIndex == 4){

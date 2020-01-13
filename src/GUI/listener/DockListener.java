@@ -84,9 +84,9 @@ public class DockListener implements ActionListener {
             ep.tfid.setText(null);
             ep.tfsize.setText(null);
         }
-        if(button == ep.bCon){
+        //if(button == ep.bCon){
 
-        }
+        //}
         if(button == ep.bDel){
             ls.delLocation(Integer.valueOf(ep.tfidDel.getText()));
             ep.lmsg.setText("Supprimé avec succès!");

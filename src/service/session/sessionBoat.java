@@ -32,19 +32,23 @@ public class sessionBoat<T> extends session<Boat> {
     public boolean editForeignKey(int id, int idFK, Class<? extends T> classT){
         T t = super.queryByIndex(classT, idFK);
         b = super.queryByIndex(Boat.class, id);
-        if(t == null || b == null){
+        if(b == null){
             return false;
         }
         else{
             em.getTransaction().begin();
             if(classT.getSimpleName().equals("Location")){
-                b.getLocation().setBoat(null);
+                if(b.getLocation()!=null) {
+                    b.getLocation().setBoat(null);
+                }
                 ((Location)t).setBoat(b);
                 b.setLocation((Location)t);
             }
             else if(classT.getSimpleName().equals("Host")){
-                List<Boat> boats = b.getHost().getBoats();
-                boats.remove(b);
+                if(b.getHost()!=null) {
+                    List<Boat> boats = b.getHost().getBoats();
+                    boats.remove(b);
+                }
                 ((Host)t).addBoats(b);
                 b.setHost((Host)t);
             }
@@ -91,12 +95,14 @@ public class sessionBoat<T> extends session<Boat> {
     }
 
     public float getCharacter(int id){
+        float r;
         if (getBoatType(id).equals("SailBoat")){
-            SailBoat sailBoat = em.find(SailBoat.class, id);
-            return sailBoat.getSailArea();
+            r = (new session<SailBoat>()).queryByIndex(SailBoat.class, id).getSailArea();
+        }else if(getBoatType(id).equals("MotorBoat")){
+            r = (new session<MotorBoat>()).queryByIndex(MotorBoat.class,id).getHorsePower();
         }else{
-            MotorBoat motorBoat = em.find(MotorBoat.class, id);
-            return motorBoat.getHorsePower();
+            return (float)-1.0;
         }
+        return r;
     }
 }

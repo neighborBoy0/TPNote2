@@ -15,8 +15,19 @@ public class LocationService {
         return location;
     }
 
-    public void delLocation(int id){
-
+    public boolean delLocation(int id){
+        Location location = (Location) sl.queryByIndex(Location.class, id);
+        if(location == null){
+            return false;
+        }else{
+            if(location.getBoat()!=null){
+                location.getBoat().setLocation(null);
+            }
+            int n = location.getDock().getNbLocation();
+            location.getDock().setNbLocation(n-1);
+            location.getDock().getLocations().remove(location);
+            return sl.removeT(Location.class,id);
+        }
     }
 
     public List<Location> getAllLocation(){

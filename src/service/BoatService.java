@@ -8,7 +8,7 @@ import java.util.List;
 
 public class BoatService<T> {
     private Boat boat;
-    private sessionBoat sb = new sessionBoat();
+    public sessionBoat sb = new sessionBoat();
     private session s = new session();
 
     public boolean addBoat(String name, String type, String wight, String hostId, String locationId,String character){
@@ -61,11 +61,19 @@ public class BoatService<T> {
     public boolean delBoat(int id){
         boat = (Boat)s.queryByIndex(Boat.class, id);
         Host host = boat.getHost();
-        if(host.delBoat(boat)) {
-            return s.removeT(Boat.class, id);
-        }else{
-            return false;
+        Location location = boat.getLocation();
+        if(host != null){
+            if(!host.delBoat(boat)) {
+                return false;
+            }
         }
+        if(location != null){
+            if(!location.delBoat(boat)) {
+                return false;
+            }
+        }
+        return s.removeT(Boat.class, boat.getId());
+        //return true;
     }
 
     public void editBoat(int id, String name, String wight, String hostId, String locationId, String data){
@@ -83,9 +91,9 @@ public class BoatService<T> {
         }
         SailBoat sailBoat = (SailBoat) s.queryByIndex(SailBoat.class, id);
         if(sailBoat != null && !data.equals("")){
-            sb.editFeature(id,Float.valueOf(data),SailBoat.class);
+            sb.editFeature(id, Float.valueOf(data), SailBoat.class);
         }else if(!data.equals("")){
-            sb.editFeature(id,Float.valueOf(data),MotorBoat.class);
+            sb.editFeature(id, Float.valueOf(data), MotorBoat.class);
         }
     }
 
