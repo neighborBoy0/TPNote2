@@ -9,8 +9,6 @@ import GUI.panel.smallpanel.AddHostPanel;
 import GUI.panel.smallpanel.DeleteHostPanel;
 import GUI.panel.smallpanel.EditHostPanel;
 import GUI.panel.smallpanel.SearchHostPanel;
-import entity.Host;
-import service.BoatService;
 import service.HostService;
 
 import javax.swing.*;
@@ -90,10 +88,18 @@ public class HostListener implements ActionListener {
         }
 
         //SearchHostPanel Listener
-        if(button == sp.bSearch){
-            String str = hs.rearchHost(Integer.valueOf(sp.tfid.getText()));
+        if(button == sp.bSearch1){
+            String str = hs.rearchHostById(Integer.valueOf(sp.tfid.getText()));
             sp.ta.setText(str);
             sp.tfid.setText(null);
+            sp.tfname.setText(null);
+        }
+
+        if(button == sp.bSearch2){
+            String str = hs.rearchHostByName(sp.tfname.getText());
+            sp.ta.setText(str);
+            sp.tfid.setText(null);
+            sp.tfname.setText(null);
         }
     }
 }

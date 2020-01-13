@@ -40,7 +40,8 @@ public class DockPanel extends WorkingPanel{
 
 
     private DockPanel(){
-        //JSplitPane p = new JSplitPane();
+        JSplitPane p1 = new JSplitPane();
+        JSplitPane p2 = new JSplitPane();
 
         JScrollPane sp1 = new JScrollPane(t);
         JScrollPane sp2 = new JScrollPane(tInfo);

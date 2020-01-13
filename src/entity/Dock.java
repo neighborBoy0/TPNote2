@@ -41,4 +41,14 @@ public class Dock {
     public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
+
+    public boolean delLocation(Location location){
+        nbLocation -= 1;
+        return this.locations.remove(location);
+    }
+
+    public boolean addLocation(Location location){
+        nbLocation += 1;
+        return this.locations.add(location);
+    }
 }

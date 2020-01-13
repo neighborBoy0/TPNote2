@@ -29,7 +29,7 @@ public class EditDockPanel extends JPanel {
 
     //JButton
     public JButton bAdd = new JButton("Ajouter un emplacement");
-    public JButton bCon = new JButton("Confirmer");
+    //public JButton bCon = new JButton("Confirmer");
     public JButton bDel = new JButton("Supprimer un emplacement");
 
     private EditDockPanel(){
@@ -49,7 +49,7 @@ public class EditDockPanel extends JPanel {
         pCenter.setLayout(new BorderLayout());
         JScrollPane sp = new JScrollPane(ta);
         pCenter.add(sp, BorderLayout.CENTER);
-        pCenter.add(bCon, BorderLayout.SOUTH);
+        //pCenter.add(bCon, BorderLayout.SOUTH);
 
         //pSouth.add(ldelL);
         //pSouth.add(lvide2);
@@ -75,7 +75,7 @@ public class EditDockPanel extends JPanel {
     public void addListener() {
         DockListener l = new DockListener();
         bAdd.addActionListener(l);
-        bCon.addActionListener(l);
+        //bCon.addActionListener(l);
         bDel.addActionListener(l);
     }
 

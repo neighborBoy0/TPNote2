@@ -49,4 +49,9 @@ public class Location {
     public void setDock(Dock dock) {
         this.dock = dock;
     }
+
+    public boolean delBoat(Boat boat){
+        this.boat = null;
+        return true;
+    }
 }

@@ -15,6 +15,9 @@ public class HostService {
     List<Boat> boatList;
 
     public boolean createHost(String name, String address){
+        if(name.equals("")){
+            return false;
+        }
         host = new Host();
         host.setName(name);
         host.setAddress(address);
@@ -24,13 +27,13 @@ public class HostService {
 
     public boolean delHost(int id){
         host = (Host)s.queryByIndex(Host.class, id);
-        if(host == null){
+        if(host == null || host.getBoats()!=null){
             return false;
         }else{
-            for (Boat boat:host.getBoats()) {
+            /*for (Boat boat:host.getBoats()) {
                 sessionBoat sb = new sessionBoat();
                 sb.editForeignKey(boat.getId(),0,Host.class);
-            }
+            }*/
             s.removeT(Host.class, id);
             return true;
         }
@@ -52,13 +55,13 @@ public class HostService {
         }
     }
 
-    public String rearchHost(int id){
-        Host host = (Host) (s.queryByIndex(Host.class, id));
+
+    private String rearchHost(Host host){
         if(host == null){
             return "Pas de cette personne!";
         }else {
-            String str = "Propriétaire " + id + " s'appelle '";
-            str = str + host.getName() + "'.\nIl/Elle habite " + host.getAddress() + ".\nIl/Elle a " + host.getBoats().size() + " bateau(x).\n";
+            String str = "Propriétaire " + host.getId() + " s'appelle '";
+            str = str + host.getName() + "'.\nIl/Elle habite à " + host.getAddress() + ".\nIl/Elle a " + host.getBoats().size() + " bateau(x).\n";
             for (int i = 0; i < host.getBoats().size(); i++) {
                 str = str + (i + 1) + ". Bateau " + host.getBoats().get(i).getId()
                         + " s'appelle '" + host.getBoats().get(i).getName()
@@ -72,6 +75,25 @@ public class HostService {
             }
             return str;
         }
+    }
+
+    public String rearchHostById(int id){
+        Host host = (Host) (s.queryByIndex(Host.class, id));
+        return rearchHost(host);
+    }
+
+    public String rearchHostByName(String name){
+        String jpaql = "SELECT host.id FROM Host host WHERE host.name = :str";
+        List<Integer> hostIndex = (List<Integer>) s.findByJpaQl(jpaql,name);
+        if(hostIndex.size()==0){
+            return "Il n'y a pas de propriétaire qui s'appelle " + name;
+        }
+        String str = "";
+        for(int i = 0; i < hostIndex.size(); i++){
+            Host host = (Host) s.queryByIndex(Host.class, hostIndex.get(0));
+            str = str + rearchHost(host);
+        }
+        return str;
     }
 
     public List<Host> getAllHost(){

@@ -46,4 +46,11 @@ public class session<T> {
         List<T> t = (List<T>) query.getResultList();
         return t;
     }
+
+    public <T> List<T> findByJpaQl(String jpaQl, String str){
+        Query query = em.createQuery(jpaQl);
+        query.setParameter("str", str);
+        List<T> t = (List<T>) query.getResultList();
+        return t;
+    }
 }
