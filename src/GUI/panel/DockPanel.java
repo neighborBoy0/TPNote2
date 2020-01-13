@@ -29,7 +29,7 @@ public class DockPanel extends WorkingPanel{
 
     String columnListe[] = new String[]{"ID Quai", "Nombre d'emplacement"};
 
-    String columnNames[] = new String[]{"ID d'Emplacement", "ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
+    String columnNames[] = new String[]{"ID d'Emplacement", "Taille d'Emplacement" ,"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
 
     //JTable
     public DockTableModel tm1 = new DockTableModel();
