@@ -33,8 +33,8 @@ public class AddDockPanel extends JPanel {
         pNorth.add(tfsize);
         pNorth.add(bAdd);
 
-
-        pCenter.add(ta);
+        JScrollPane sp = new JScrollPane(ta);
+        pCenter.add(sp);
 
         pSubmit.add(bCon);
         pSubmit.add(lmsg);

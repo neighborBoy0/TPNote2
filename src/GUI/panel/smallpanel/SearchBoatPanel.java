@@ -95,7 +95,8 @@ public class SearchBoatPanel  extends JPanel {
 
         pSouth.setLayout(new BorderLayout(10, 10));
         pSouth.add(linfo, BorderLayout.NORTH);
-        pSouth.add(ta, BorderLayout.CENTER);
+        JScrollPane sp = new JScrollPane(ta);
+        pSouth.add(sp, BorderLayout.CENTER);
         pSouth.setPreferredSize(new Dimension(550, 200));
 
         pOutNorth.setBorder(BorderFactory.createEtchedBorder());

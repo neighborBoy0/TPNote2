@@ -47,7 +47,8 @@ public class EditDockPanel extends JPanel {
         pNorth.setBorder(BorderFactory.createTitledBorder("Ajouter un emplacement"));
 
         pCenter.setLayout(new BorderLayout());
-        pCenter.add(ta, BorderLayout.CENTER);
+        JScrollPane sp = new JScrollPane(ta);
+        pCenter.add(sp, BorderLayout.CENTER);
         pCenter.add(bCon, BorderLayout.SOUTH);
 
         //pSouth.add(ldelL);

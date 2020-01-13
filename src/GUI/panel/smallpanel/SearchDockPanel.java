@@ -20,6 +20,7 @@ public class SearchDockPanel extends JPanel {
     public JButton bSearch = new JButton("Rechercher");
 
     private SearchDockPanel(){
+
         JPanel pNorth = new JPanel();
         JPanel pCenter = new JPanel();
 
@@ -30,7 +31,8 @@ public class SearchDockPanel extends JPanel {
 
         pCenter.setLayout(new BorderLayout(10, 10));
         pCenter.add(linfo, BorderLayout.NORTH);
-        pCenter.add(ta, BorderLayout.CENTER);
+        JScrollPane sp = new JScrollPane(ta);
+        pCenter.add(sp, BorderLayout.CENTER);
 
         this.setLayout(new BorderLayout(10,10));
         this.setBorder(new EmptyBorder(15,15,15,15));
