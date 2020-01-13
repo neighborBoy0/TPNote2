@@ -17,7 +17,7 @@ public class DockInfoTableModel implements TableModel {
     private BoatService bs = new BoatService();
     public List<Location> locations = ds.getAllDock().get(indexDock).getLocations();
 
-    String columnNames[] = new String[]{"ID d'Emplacement", "ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
+    String columnNames[] = new String[]{"ID d'Emplacement","Taille d'Emplacement" ,"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
 
     @Override
     public int getRowCount() {
@@ -51,22 +51,25 @@ public class DockInfoTableModel implements TableModel {
         if(columnIndex == 0){
             return location.getId();
         }
-        if(columnIndex == 1 && location.getBoat() != null){
-            return location.getBoat().getId();
+        if(columnIndex == 1 ){
+            return location.getSize();
         }
         if(columnIndex == 2 && location.getBoat() != null){
-            return location.getBoat().getName();
+            return location.getBoat().getId();
         }
         if(columnIndex == 3 && location.getBoat() != null){
-            return bs.getBoatType(location.getBoat().getId());
+            return location.getBoat().getName();
         }
         if(columnIndex == 4 && location.getBoat() != null){
-            return bs.getBoatCharacter(location.getBoat().getId());
+            return bs.getBoatType(location.getBoat().getId());
         }
         if(columnIndex == 5 && location.getBoat() != null){
-            return location.getBoat().getWight();
+            return bs.getBoatCharacter(location.getBoat().getId());
         }
         if(columnIndex == 6 && location.getBoat() != null){
+            return location.getBoat().getWight();
+        }
+        if(columnIndex == 7 && location.getBoat() != null){
             return location.getBoat().getHost().getName();
         }
         return null;
