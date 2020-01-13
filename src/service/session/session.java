@@ -6,7 +6,7 @@ import java.util.List;
 public class session<T> {
     private T t;
 
-    @PersistenceContext(unitName = "session")
+    //@PersistenceContext(unitName = "test")
     private EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
     protected EntityManager em = factory.createEntityManager();
 
