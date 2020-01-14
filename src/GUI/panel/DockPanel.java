@@ -27,7 +27,7 @@ public class DockPanel extends WorkingPanel{
     //JLabel
     JLabel ltitle = new JLabel("Liste de quais:");
 
-    String columnListe[] = new String[]{"ID Quai", "Nombre d'emplacement"};
+    String columnListe[] = new String[]{"ID Quai", "Nombre d'emplacement", "Nombre de bateau"};
 
     String columnNames[] = new String[]{"ID d'Emplacement", "Taille d'Emplacement" ,"ID Bateau" ,"Nom", "Type", "Caractère", "Poids", "Propriétaire"};
 

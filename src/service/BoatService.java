@@ -76,7 +76,7 @@ public class BoatService<T> {
         //return true;
     }
 
-    public void editBoat(int id, String name, String wight, String hostId, String locationId, String data){
+    public boolean editBoat(int id, String name, String wight, String hostId, String locationId, String data){
         if(!name.equals("")){
             sb.edit(id,name);
         }
@@ -94,7 +94,10 @@ public class BoatService<T> {
             sb.editFeature(id, Float.valueOf(data), SailBoat.class);
         }else if(!data.equals("")){
             sb.editFeature(id, Float.valueOf(data), MotorBoat.class);
+        }else{
+            return false;
         }
+        return true;
     }
 
     public String getBoatType(int id){

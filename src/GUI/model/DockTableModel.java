@@ -10,9 +10,10 @@ import java.util.List;
 
 public class DockTableModel implements TableModel {
 
-    String columnNames[] = new String[]{"ID Quai", "Nombre d'emplacement"};
+    String columnNames[] = new String[]{"ID Quai", "Nombre d'emplacement", "Nombre de bateau"};
 
     public List<Dock> docks = new DockService().getAllDock();
+    public DockService ds = new DockService();
 
     @Override
     public int getRowCount() {
@@ -48,6 +49,8 @@ public class DockTableModel implements TableModel {
                 return dock.getId();
             case 1:
                 return dock.getNbLocation();
+            case 2:
+                return ds.getNbBoat(dock.getId());
         }
         return null;
 

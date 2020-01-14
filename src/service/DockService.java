@@ -11,6 +11,7 @@ public class DockService {
     private Dock dock;
     private List<Location> locations = new ArrayList<Location>();
     private session sl = new session();
+    public LocationService ls = new LocationService();
 
     public boolean addDock(List<Location> locations){
         dock = new Dock();
@@ -88,5 +89,17 @@ public class DockService {
             }
         }
         return str;
+    }
+
+    public int getNbBoat(int idDock){
+            dock = (Dock) sl.queryByIndex(Dock.class, idDock);
+            locations = dock.getLocations();
+            int nb = 0;
+        for (Location location: locations) {
+            if (location.getBoat() != null){
+                nb+=1;
+            }
+        }
+        return nb;
     }
 }

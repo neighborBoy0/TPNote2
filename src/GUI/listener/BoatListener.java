@@ -71,7 +71,11 @@ public class BoatListener implements ActionListener {
 
         //EditBoatPanel Listener
         if(button == ep.bEdit){
-            bs.editBoat(Integer.valueOf(ep.tfid.getText()), ep.tfnom.getText(), ep.tfwigh.getText(),ep.tfhost.getText(),ep.tfloca.getText(),ep.tfcara.getText());
+            if(bs.editBoat(Integer.valueOf(ep.tfid.getText()), ep.tfnom.getText(), ep.tfwigh.getText(),ep.tfhost.getText(),ep.tfloca.getText(),ep.tfcara.getText())){
+                ep.lmsg.setText("Modifié avec succès!");
+            }else {
+                ep.lmsg.setText("Il n'existe pas.");
+            }
             ep.tfid.setText(null);
             ep.tfcara.setText(null);
             ep.tfhost.setText(null);

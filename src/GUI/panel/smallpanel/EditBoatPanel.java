@@ -16,7 +16,7 @@ public class EditBoatPanel extends JPanel {
     //JLabel ltype = new JLabel("Type:");
     JLabel lcara = new JLabel("Caractère:");
     JLabel lwigh = new JLabel("Poids:");
-    JLabel lhost = new JLabel("Propriétaire");
+    JLabel lhost = new JLabel("Propriétaire ID");
     //JLabel ldock = new JLabel("Quai ID:");
     JLabel lloca = new JLabel("Emplacement ID:");
     public JLabel lmsg = new JLabel();
