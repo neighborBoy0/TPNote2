@@ -62,14 +62,17 @@ public class HostListener implements ActionListener {
 
         //EditHostPanel Listener
         if(button == ep.bEdit){
+            if(ep.tfid.getText() == ""){
+                ep.lmsg.setText("Veuillez vous saisir ID.");
+            }
             int id = Integer.valueOf(ep.tfid.getText());
             String name = ep.tfname.getText();
             String address = ep.tfaddr.getText();
-            hs.editHost(id, name, address);
+            //hs.editHost(id, name, address);
             if(hs.editHost(id, name, address)){
-                ep.lmsg.setText("Supprimé avec succès!");
+                ep.lmsg.setText("Modifié avec succès!");
             }else {
-                ep.lmsg.setText("Échoué, il y a des erreurs!");
+                ep.lmsg.setText("Il n'existe pas.");
             }
             ep.tfname.setText(null);
             ep.tfaddr.setText(null);

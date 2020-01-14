@@ -19,7 +19,7 @@ public class EditBoatPanel extends JPanel {
     JLabel lhost = new JLabel("Propriétaire ID");
     //JLabel ldock = new JLabel("Quai ID:");
     JLabel lloca = new JLabel("Emplacement ID:");
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     public JTextField tfid = new JTextField();
     public JTextField tfnom = new JTextField();

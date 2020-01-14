@@ -12,7 +12,7 @@ public class AddDockPanel extends JPanel {
 
     //JLable
     JLabel lsize = new JLabel("Taille des nouveaux emplacements:");
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     //JTextField
     public JTextField tfsize = new JTextField();

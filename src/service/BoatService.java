@@ -60,6 +60,9 @@ public class BoatService<T> {
 
     public boolean delBoat(int id){
         boat = (Boat)s.queryByIndex(Boat.class, id);
+        if(boat == null){
+            return false;
+        }
         Host host = boat.getHost();
         Location location = boat.getLocation();
         if(host != null){
@@ -178,7 +181,7 @@ public class BoatService<T> {
             }
             return strResult;
         }else{
-            return "Entrer, s'il vous plais.";
+            return "Veuillez vous saisir.";
         }
     }
 

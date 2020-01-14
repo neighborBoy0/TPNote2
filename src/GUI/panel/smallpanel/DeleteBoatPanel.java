@@ -12,7 +12,7 @@ public class DeleteBoatPanel extends JPanel {
     //JLable
     JLabel lid = new JLabel("ID Bateau:");
 
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     public JTextField tfid = new JTextField();
 

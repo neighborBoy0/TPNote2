@@ -15,7 +15,7 @@ public class EditHostPanel  extends JPanel {
     JLabel lname = new JLabel("Nouveau nom:");
     JLabel laddr = new JLabel("Nouveau adresse:");
 
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     public JTextField tfid = new JTextField();
     public JTextField tfname = new JTextField();

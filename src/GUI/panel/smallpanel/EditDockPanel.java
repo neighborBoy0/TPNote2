@@ -18,7 +18,7 @@ public class EditDockPanel extends JPanel {
     JLabel ldelL  = new JLabel("Supprimer un emplacement:");
     JLabel lvide2 = new JLabel("");
     JLabel lidL   = new JLabel("ID Emplacement:");
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     //JTextField
     public JTextField tfid = new JTextField();

@@ -13,7 +13,7 @@ public class DeleteHostPanel extends JPanel {
     //JLable
     JLabel lid = new JLabel("ID Propriétaire:");
 
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     public JTextField tfid = new JTextField();
 

@@ -13,7 +13,7 @@ public class DeleteDockPanel extends JPanel {
     //JLable
     JLabel lid = new JLabel("ID Quai:");
 
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     public JTextField tfid = new JTextField();
 

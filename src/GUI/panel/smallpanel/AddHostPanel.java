@@ -13,7 +13,7 @@ public class AddHostPanel extends JPanel {
     //JLable
     JLabel lnom = new JLabel("Nom:");
     JLabel ladr = new JLabel("Adresse:");
-    public JLabel lmsg = new JLabel();
+    public JLabel lmsg = new JLabel("");
 
     //JTextField
     public JTextField tfnom = new JTextField();
