@@ -88,8 +88,11 @@ public class DockListener implements ActionListener {
 
         //}
         if(button == ep.bDel){
-            ls.delLocation(Integer.valueOf(ep.tfidDel.getText()));
-            ep.lmsg.setText("Supprimé avec succès!");
+            if(ls.delLocation(Integer.valueOf(ep.tfidDel.getText()))){
+                ep.lmsg.setText("Supprimé avec succès!");
+            }else{
+                ep.lmsg.setText("Il n'existe pas.");
+            }
             ep.tfidDel.setText(null);
             p.updateDate();
         }

@@ -15,7 +15,7 @@ public class HostPanel extends WorkingPanel{
     public static HostPanel instance = new HostPanel();
 
     public JButton bAdd = new JButton("Création");
-    public JButton bEdit = new JButton("Éditation");
+    public JButton bEdit = new JButton("Modification");
     public JButton bDelete = new JButton("Supprimation");
     public JButton bSearch = new JButton("Recherche");
 

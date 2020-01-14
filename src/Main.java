@@ -18,8 +18,8 @@ public class Main {
         Main main = new Main();
         main.run();
 
-        session s = new session();
-        List<Host> hosts = s.findAll(Host.class);
+        //session s = new session();
+        //List<Host> hosts = s.findAll(Host.class);
 
 
         //EntityManagerFactory factory = Persistence.createEntityManagerFactory("test");
@@ -36,7 +36,7 @@ public class Main {
         try {
             factory = Persistence.createEntityManagerFactory("test");
             entityManager = factory.createEntityManager();
-            persistDock(entityManager);
+            //persistDock(entityManager);
 
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
@@ -56,7 +56,7 @@ public class Main {
         try{
             transaction.begin();
             Dock dock1 = new Dock();
-            dock1.setNbLocation(10);
+            dock1.setNbLocation(1);
             entityManager.persist(dock1);
             transaction.commit();
         }catch (Exception e){

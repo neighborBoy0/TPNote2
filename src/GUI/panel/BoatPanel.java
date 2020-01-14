@@ -14,7 +14,7 @@ public class BoatPanel extends WorkingPanel{
     public static BoatPanel instance = new BoatPanel();
 
     public JButton bAdd = new JButton("Création");
-    public JButton bEdit = new JButton("Éditation");
+    public JButton bEdit = new JButton("Modification");
     public JButton bDelete = new JButton("Supprimation");
     public JButton bSearch = new JButton("Recherche");
 
