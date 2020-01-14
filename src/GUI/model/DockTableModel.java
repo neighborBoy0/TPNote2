@@ -2,6 +2,7 @@ package GUI.model;
 
 import GUI.listener.DockListener;
 import entity.Dock;
+import entity.Location;
 import service.DockService;
 
 import javax.swing.event.TableModelListener;
@@ -50,7 +51,15 @@ public class DockTableModel implements TableModel {
             case 1:
                 return dock.getNbLocation();
             case 2:
-                return ds.getNbBoat(dock.getId());
+                int n = 0;
+                if(dock.getLocations().size() > 0){
+                    for(Location location:dock.getLocations()){
+                        if (location.getBoat()!=null){
+                            n += 1;
+                        }
+                    }
+                }
+                return n;
         }
         return null;
 

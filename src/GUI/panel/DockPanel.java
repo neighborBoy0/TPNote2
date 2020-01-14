@@ -96,9 +96,6 @@ public class DockPanel extends WorkingPanel{
         t.updateUI();
         t.getSelectionModel().setSelectionInterval(0, 0);
 
-        /*tm2.locations = tm1.docks.get(tm2.indexDock).getLocations();
-        tInfo.updateUI();
-        tInfo.getSelectionModel().setSelectionInterval(0, 0);*/
         if( 0 == tm1.docks.size()){
             bEdit.setEnabled(false);
             bDelete.setEnabled(false);
